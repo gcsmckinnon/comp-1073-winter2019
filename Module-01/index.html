@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Shaun CSS -->
+    <link rel="stylesheet" type="text/css" href="../../assets/styles.css">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Variables & Conditionals</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="mt-5">
+        <h1>Variables & Conditionals</h1>  
+      </header>
+
+      <hr><hr>
+
+      <!-- Our Content -->
+      <article class="lesson">
+        <section class="my-5">
+          <header>
+            <h2>Variables</h2>
+          </header>
+          
+          <div>
+            <h3><strong>RECAP:</strong>&nbsp;What is a Variable?</h3>
+            <p>
+              <em>Variables</em> are essential to <span class="em" data-toggle="tooltip" title="Don't Repeat Yourself">DRY</span> programming. In the simplest of terms they are <span class="em">containers that hold a value</span>. The variable label is known as a <span class="em">symbol name</span> and provides a human-readable way to identify the container.
+    
+              <small class="em note">
+                In reality variables reference locations in memory where the value is stored. However, instead of having to remember the memory address you get to use a simple human-readable label.
+              </small>
+            </p>
+            
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Example:</strong>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Address/Label</th>
+                  <th>Operator</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0x12DF</td>
+                  <td>=</td>
+                  <td>"Morty"</td>
+                </tr>
+
+                <tr>
+                  <td>name</td>
+                  <td>=</td>
+                  <td>"Morty"</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Practice:</strong>
+            <small class="em">Let's write our first line of code!!!</small>
+            <pre class="line-numbers" data-start="1">
+              <code class="language-javascript">
+                // Step 1: Create a variable with the symbol name
+                // 'greeting' and assign it the value of 'Hello World'
+                <span id="step1"></span>
+              </code>
+            </pre>
+            <hr>
+          </div>
+
+          <div>
+            <h3>RECAP: Data Types</h3>
+            <p>
+              Data is essential to applications. In order to perform <em>normalization</em>, <em>security</em>, and <em>sanitization</em>, programming languages provide some native data types. The following are the most common native data types:
+            </p>
+            <ul>
+              <li>Char/String</li>
+              <li>Integer/Float/Double</li>
+              <li>Boolean</li>
+              <li>Array</li>
+              <li>Object</li>
+            </ul>
+            <p>
+              <em>Strict languages like C++ and Java</em> require you to explicitly declare the data type when you instantiate your variable. However, JavaScript is a <em>loosey goosey</em>, <em data-toggle="tooltip" title="If it walks like a duck and quacks like a duck then it must be duck!">duck typed</em> language. This means data types are <em>implied</em>.
+            </p>
+
+            <p>
+              Remember our first line of code?
+            </p>
+
+            <pre class="line-numbers" data-start="1">
+              <code class="language-javascript">
+                // Step 1: Create a variable with the symbol name
+                // 'greeting' and assign it the value of 'Hello World'
+                greeting = "Hello World";
+              </code>
+            </pre>
+            
+            <p>
+              Our variable <em>greeting</em> doesn't have an explicit data type declared. So how does the <em>JavaScript interpreter</em> know our data is a <em>string</em>? It knows because of the duck type rule; it <em>looks like string</em>; it <em>behaves like a string</em>; it <em>must be a string</em>.
+            </p>
+            
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Data Types:</strong>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Data Type</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Number</td>
+                  <td>x = 5;<br>y = 2.5;</td>
+                </tr>
+
+                <tr>
+                  <td>String</td>
+                  <td>name = "Bob";<br>char = "a";</td>
+                </tr>
+
+                <tr>
+                  <td>Boolean</td>
+                  <td>cont = false;<br>accept = true;</td>
+                </tr>
+
+                <tr>
+                  <td>Array</td>
+                  <td>myArr = [1, "Bob", 2.3, false];</td>
+                </tr>
+
+                <tr>
+                  <td>Object</td>
+                  <td>Person = {name: "Shaun", age: 39};</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="note">
+              The data type <em>Number</em> encompasses all numbers whether they be integers, floats, or doubles.
+            </p>
+
+            <p class="note">
+              JavaScript doesn't have a <em>char</em> data type like many other languages do. However, in some midlevel languages like C++ the <em>String</em> data type is actually a <em>char array</em>. Curiously, many string methods in JavaScript operate the same as the array methods...hmmm...<em>are you pickin' up what I'm puttin' down?</em> 
+            </p>
+            
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Practice:</strong>
+            <small class="em">Let's create some implicit variables!</small>
+            <pre class="line-numbers" data-start="5">
+              <code class="language-javascript">
+                // Step 2: Create a variable with the symbol name
+                // 'fullName' and assign it the value of your name
+                <span id="step2"></span>
+
+                // Step 3: Create a variable with the symbol name
+                // 'age' and assign it the value of your age
+                <span id="step3"></span>
+
+                // Step 4: Create a variable with the symbol name
+                // 'hourlyIncome' and assign it a decimal value
+                <span id="step4"></span>
+
+                // Step 5: Create a variable with the symbol name
+                // 'married' and assign it a boolean value
+                <span id="step5"></span>
+              </code>
+            </pre>
+            <hr>
+          </div>
+
+          <div>
+            <h3>Variable Scope</h3>
+            <p>
+              <em>Variable scope</em> is the visibility of a variable to the application. <em>!!!DON'T CONFUSE THESE WITH CLASS VISIBILIES!!!</em> In JavaScript we can declare a variable's visibility at the time of instantiation. The <em>3 visibility scopes</em> available are <em>global</em>, <em>functional</em>, and <em>block</em>. We have <em>3 scope modifier keywords</em> we can use to declare our <em>scope and <span class="em" data-toggle="tooltip" title="Mutable means 'can change'. Immutable means 'cannot change'.">mutability</span></em>. They are <em><span class="em" data-toggle="tooltip" title="Functional Scope | Mutable">var</span></em>, <em><span class="em" data-toggle="tooltip" title="Block Scope | Mutable">let</span></em>, and <em><span class="em" data-toggle="tooltip" title="Block Scope | Immutable">const</span></em>.
+            </p>
+
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Scope and Mutability:</strong>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Scope</th>
+                  <th>Scope Keyword</th>
+                  <th>Mutable</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <span data-toggle="tooltip" title="Globally scoped variables are accessible ANYWHERE within your application whether you define them within a function or a block. These are usually avoided as they're hard to maintain and can lead to a lot of issues like symbol name conflicts and logic errors.">
+                      Global
+                    </span>
+                  </td>
+                  <td><span class="em" data-toggle="tooltip" title="Non-Applicable (no keyword)">N/A</span></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td>x = 5;</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <span data-toggle="tooltip" title="Functionally scoped variables are accessible only within a function block. These are usually avoided as 'let' provides a better scoping methodology.">
+                      Functional
+                    </span>
+                  </td>
+                  <td><span class="em" data-toggle="tooltip" title="ES5 introduced the 'let' keyword which more appropriately scopes variables to a block (the {} structure). var, while not global, is exclusively scoped to function blocks.">var</span></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td>var name = "Louis";</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <span data-toggle="tooltip" title="Block scoped variables are accessible only within any block structure. Block structures are identified by the {} syntax.">
+                      Block
+                    </span>
+                  </td>
+                  <td><span class="em" data-toggle="tooltip" title="ES5 introduced the 'let' keyword which scopes variables to a block (the {} structure). This can be an if(){}, for(){} loop, function(){}, while(){}, or even an empty {} block structure.">let</span></td>
+                  <td><i class="fas fa-check"></i></td>
+                  <td>let age = 40.5;</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <span data-toggle="tooltip" title="Block scoped variables are accessible only within any block structure. Block structures are identified by the {} syntax.">
+                      Block
+                    </span>
+                  </td>
+                  <td><span class="em" data-toggle="tooltip" title="ES5 introduced the 'const' keyword which scopes variables to a block (the {} structure) as well as make it immutable. These are the same as constants declared in other languages. Immutable means the value cannot be changed once it's assigned.">const</span></td>
+                  <td><i class="fas fa-times"></i></td>
+                  <td>const dob = "1978-12-22";</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="em note">
+              <em>Variable Scopes</em> seem to confuse students new to JavaScript the most. The above table will definitely help better understand how they work.
+            </p>
+
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Practice:</strong>
+            <small class="em">Let's (see what I did there?) scope some variables!</small>
+            <pre class="line-numbers" data-start="21">
+              <code class="language-javascript">
+                // Step 6: Create a variable with the symbol name
+                // 'favFood' and assign it the string value of your
+                // favourite food. Give it only block scoped visibility
+                // and make it mutable.
+                <span id="step6"></span>
+
+                // Step 7: Create a variable with the symbol name
+                // 'favColour' and assign it the string value of your
+                // favourite colour. Give it only functional scoped
+                // visibility and make it mutable.
+                <span id="step7"></span>
+
+                // Step 8: Create a variable with the symbol name
+                // 'dob' and assign it the string value of your
+                // birthdate. Give it only block scoped
+                // visibility and make it immutable.
+                <span id="step8"></span>
+
+                // Step 9: Create a variable with the symbol name
+                // 'favNum' and assign it the string value of your
+                // favourite number. Give it only global visibility
+                // and make it mutable.
+                <span id="step9"></span>
+              </code>
+            </pre>
+            <hr>
+
+            <p>
+              <em>Variables in JavaScript can be instantiated without assigning a value.</em> This means you can declare the variable and give it a value later.
+            </p>
+
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Example:</strong>
+            <pre class="line-numbers" data-start="1">
+              <code class="language-javascript">
+                // Instantiated variables x and w
+                let x;
+                let w;
+
+                // Assigned values to x and w
+                x = "Foo";
+                w = "Bar";
+              </code>
+            </pre>
+
+            <p class="note">
+              <em>This can be especially handy if you're waiting for values from an external source like a user or an API.</em>
+            </p>
+          </div>
+        </section>
+        
+        <hr>
+
+        <section class="my-5">
+          <header>
+            <h2>Conditionals</h2>
+          </header>
+
+          <div>
+            <h3>RECAP: Comparison Operators</h3>
+            <p>
+              <em>Comparison operators</em> allow us to test 2 values against each other. Comparison operators compare at a binary level, which means you're not restricted to just comparing numbers. For example <em>"b" > "a"</em> is <em>true</em>. The following operators are the most common comparison operators you will encounter as a programmer in all programming languages.
+            </p>
+
+            <p>
+              <em>Logical operators</em> allow us to evaluate 2 or more conditional expressions. <em>&&</em> evaluates to <em>true</em> when both expressions are true. <em>||</em> evaluates to true if either of the expressions are true.
+            </p>
+            
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Comparison & Logical Operators:</strong>
+            <table class="table table-striped table-responsive">
+              <thead>
+                <tr>
+                  <th>Operator</th>
+                  <th>Symbol</th>
+                  <th>Description</th>
+                  <th>True</th>
+                  <th>False</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Is equal to</td>
+                  <td>==</td>
+                  <td>Loosely compares two values are equal (ignores data type)</td>
+                  <td>5&nbsp;==&nbsp;"5";</td>
+                  <td>5&nbsp;==&nbsp;6;</td>
+                </tr>
+
+                <tr>
+                  <td>Is strictly equal to</td>
+                  <td>===</td>
+                  <td>Strictly compares two values are equal (evaluates data type)</td>
+                  <td>5&nbsp;===&nbsp;5;</td>
+                  <td>5&nbsp;===&nbsp;"5";</td>
+                </tr>
+
+                <tr>
+                  <td>Is not equal to</td>
+                  <td>!=</td>
+                  <td>Loosely compares two values are not equal (ignores data type)</td>
+                  <td>5&nbsp;!=&nbsp;"6";</td>
+                  <td>5&nbsp;!=&nbsp;"5";</td>
+                </tr>
+
+                <tr>
+                  <td>Is strictly not equal to</td>
+                  <td>!==</td>
+                  <td>Strictly compares two values are not equal (evaluates data type)</td>
+                  <td>5&nbsp;!==&nbsp;"5";</td>
+                  <td>5&nbsp;!==&nbsp;5;</td>
+                </tr>
+
+                <tr>
+                  <td>Is less than</td>
+                  <td>&lt;</td>
+                  <td>Compares if one value is less than another</td>
+                  <td>5&nbsp;&lt;&nbsp;6;</td>
+                  <td>5&nbsp;&lt;&nbsp;4;</td>
+                </tr>
+
+                <tr>
+                  <td>Is greater than</td>
+                  <td>&lt;</td>
+                  <td>Compares if one value is greater than another</td>
+                  <td>7&nbsp;&gt;&nbsp;6;</td>
+                  <td>3&nbsp;&gt;&nbsp;4;</td>
+                </tr>
+
+                <tr>
+                  <td>Is less than or equal to</td>
+                  <td>&lt;=</td>
+                  <td>Compares if one value is less than another</td>
+                  <td>5&nbsp;&lt;=&nbsp;5;</td>
+                  <td>5&nbsp;&lt;=&nbsp;4;</td>
+                </tr>
+
+                <tr>
+                  <td>Is greater than or equal to</td>
+                  <td>&lt;=</td>
+                  <td>Compares if one value is greater than another</td>
+                  <td>7&nbsp;&gt;=&nbsp;7;</td>
+                  <td>3&nbsp;&gt;=&nbsp;4;</td>
+                </tr>
+
+                <tr>
+                  <td>expression AND expression</td>
+                  <td>&&</td>
+                  <td>Compares if both expressions are true</td>
+                  <td>7&nbsp;>&nbsp;3&nbsp;&&&nbsp;7&nbsp;<&nbsp;10;</td>
+                  <td>7&nbsp;>&nbsp;3&nbsp;&&&nbsp;7&nbsp;<&nbsp;5;</td>
+                </tr>
+
+                <tr>
+                  <td>expression OR expression</td>
+                  <td>||</td>
+                  <td>Compares if both expressions are true</td>
+                  <td>7&nbsp;>&nbsp;3&nbsp;||&nbsp;7&nbsp;<&nbsp;5;</td>
+                  <td>2&nbsp;>&nbsp;3&nbsp;||&nbsp;7&nbsp;<&nbsp;5;</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Practice:</strong>
+            <small class="em">Use the correct comparison operator.</small>
+            <pre class="line-numbers" data-start="44">
+              <code class="language-javascript">
+                // Step 10: Compare 5 and "5" so it is true
+                // using loose comparison
+                <span id="step10"></span>
+
+                // Step 11: Compare 7 and 3 so it is true
+                // using greater than
+                <span id="step11"></span>
+
+                // Step 12: Compare "Shaun" and "Bob" so it is true
+                // using loose comparison
+                <span id="step12"></span>
+
+                // Step 13: Compare 5 and "5" so it is false
+                // using strict comparison
+                <span id="step13"></span>
+
+                // Step 14: Compare both expressions so it's true
+                // using the correct logical operator
+                let expa1 = 5 < 6;
+                let expa2 = 7 > 3;
+                <span id=step14></span>
+
+                // Step 15: Compare both expressions so it's true
+                // using the correct logical operator
+                let expb1 = 5 < 2;
+                let expb2 = 7 > 2;
+                <span id=step15></span>
+              </code>
+            </pre>
+            <hr>
+          </div>
+
+          <div>
+            <h3>If/Else/Else If Conditions</h3>
+
+            <p>
+              <em>Conditional control structures</em>, like <em>if conditions</em>, provide pathways through our logic based upon an evaluation. These are crucial to programming as they help us to make our applications personal to the user, more efficient by bypassing unnecessary logic, or multifaceted.
+            </p>
+
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Comparison Operators:</strong>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Description</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td><span data-toggle="tooltip" title="'if' is the command that tells the interpreter 'The following logic is to be executed only IF the condition is true.'">if</span> <span data-toggle="tooltip" title="The 'if' condition is essentially a function that evaluates the argument passed in these set of parenthesis. It takes only one argument, but using AND or OR we can chain our conditions together to evaluate more than one scenario.">()</span> <span data-toggle="tooltip" title="This is the block where our logic goes providing the condition evaluates to true.">{}</span></td>
+                  <td>The <em>if</em> statement is the most common in programming. It allows us to control whether a block of logic can be executed or not.</td>
+                  <td>if&nbsp;(true)&nbsp;{&nbsp;x&nbsp;=&nbsp;5;&nbsp;}</td>
+                </tr>
+
+                <tr>
+                  <td><span data-toggle="tooltip" title="'else' can be chained onto a preceding 'if' condition ONLY.">else</span> <span data-toggle="tooltip" title="'if' is the command that tells the interpreter 'The following logic is to be executed only IF the condition is true.'">if</span> <span data-toggle="tooltip" title="The 'if' condition is essentially a function that evaluates the argument passed in these set of parenthesis. It takes only one argument, but using AND or OR we can chain our conditions together to evaluate more than one scenario.">()</span> <span data-toggle="tooltip" title="This is the block where our logic goes providing the condition evaluates to true.">{}</span></td>
+                  <td>The <em>else if</em> statement can be chained onto a preceding <em>if</em> block. It provides an alternative set of logic to execute if the previous condition check fails and its condition check passes.</td>
+                  <td>else&nbsp;if&nbsp;(true)&nbsp;{&nbsp;y&nbsp;=&nbsp;6;&nbsp;}</td>
+                </tr>
+
+                <tr>
+                  <td><span data-toggle="tooltip" title="'else' can be chained onto a preceding 'if' condition ONLY.">else</span> <span data-toggle="tooltip" title="This is the block where our logic goes providing the condition evaluates to true.">{}</span></td>
+                  <td>The <em>else</em> statement can be chained onto a preceding <em>if</em> block. It provides an alternative set of logic to execute if all of the other connected condition checks fail.</td>
+                  <td>else&nbsp;{&nbsp;y&nbsp;=&nbsp;6;&nbsp;}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Practice:</strong>
+            <small class="em">Use the correct comparison operator.</small>
+            <pre class="line-numbers" data-start="67">
+              <code class="language-javascript">
+                // Step 16: Write a condition that accomplishes
+                // the following logic:
+                let ourTestNum = 10;
+                // a) If ourTestNum is greater than 10, set it to 10.
+                // b) Otherwise, if ourTestNum is less than 10, set it
+                //    to 20.
+                // c) Otherwise, set ourTestNum to 15
+                <span id="step16"><span class="hide">if (ourTestNum > 10) {
+                  ourTestNum = 10;
+                } else if (ourTestNum < 10) {
+                  ourTestNum = 20;
+                } else {
+                  ourTestNum = 15;
+                }</span></span>
+              </code>
+            </pre>
+            <hr>
+          </div>
+
+          <div>
+            <h3>Switch</h3>
+
+            <p>
+              A <em>switch statement</em> evaluates an expression then performs an operation based on the expression's value. <em>Switch statements are very cool conditional structures.</em> Because the switch argument is what is evaluated, and it can be a variable, expression, or literal value, we can perform some very interesting logic that separates the <em>switch</em> from the standard <em>if</em> structures.
+            </p>
+
+            <p>
+              <em>Switch statements</em> are made up of various pieces of syntax that make up the structure. The core component is the <em>switch</em>() command. The parenthesis following encompass our expression to use for evaluation. The <em>code block below</em> explains each syntax component in detail.
+            </p>
+
+            <small class="note">
+              There are several ideas that <em>switch statements</em> are inefficient and you should always use <em>if statements</em> instead. The new V8 JavaScript engine performs optimizations based on either using switch or if statements. This means you should always use <em>whatever structure provides the best code readability</em>.
+            </small>
+
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Example:</strong>
+            <pre>
+<code>
+// Our variable
+let service = "good";
+let tip;
+
+// Our switch
+<span class="em no-tooltip-icon" data-toggle="tooltip" title="The command to tell the interpreter that we want to evaluate this expression/variable and execute the appropriate case logic.">switch</span> (<span class="em no-tooltip-icon" data-toggle="tooltip" title="This is our argument that we're evaluating against. This can be a variable, an expression or a literal value.">service</span>) <span class="em no-tooltip-icon" data-toggle="tooltip" title="This is the block that encapsulates all our case conditions.">{</span>
+  <span class="em no-tooltip-icon" data-toggle="tooltip" title="'case' tells the interpreter that we have a new value to evaluate.">case</span> <span class="em no-tooltip-icon" data-toggle="tooltip" title="This is the value we wish to compare to the argument passed to the switch. This comparison is a strict 'is equal to' (===) evaluation.">"terrible"</span><span class="em no-tooltip-icon" data-toggle="tooltip" title="This operator tells the interpreter that the expressions following are to be executed if the case evaluated to true. These will evalute till the case is defined or the block is exited either with a break or a return.">:</span>
+    <span data-toggle="tooltip" title="Our logic we want to execute.">tip = 0.00;</span>
+    <span class="em no-tooltip-icon" data-toggle="tooltip" title="This tells the interpreter to exit the switch statement. If we don't, the interpreter will move on to the next case and evaluate our argument against the value. It will then execute the logic. This will continually happen till the block is closed. 'break' stops this. You may also use the 'return' statement.">break;</span>
+  <span data-toggle="tooltip" title="Our next case and logic block.">case "bad":
+    tip = 0.05;
+    break;</span>
+  case "meh":
+    tip = 0.10;
+    break;
+  case "good":
+    tip = 0.15;
+    break;
+  <span class="em no-tooltip-icon" data-toggle="tooltip" title="This is the default logic block. Providing you've used the break exit in each case, this block will only execute if none of the other cases evaluate to true. It doesn't evaluate against the argument.">default:</span>
+    tip = 0.20;
+    break;
+<span class="em no-tooltip-icon" data-toggle="tooltip" title="Closing the switch statement block.">}</span>
+</code>
+            </pre>
+
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Practice:</strong>
+            <small class="em">Switch statement.</small>
+            <pre class="line-numbers" data-start="84">
+              <code class="language-javascript">
+                // Step 17: Write a condition that accomplishes
+                // the following logic:
+                let res = 10;
+                // a) If res is equal to 10 then set res to 15.
+                // b) If res is equal to 15 then set res to 20.
+                // c) Otherwise res should be set to 30.
+                <span id="step17"><span class="hide">switch (ourTestNum) {
+                  case 10:
+                    res = 15;
+                    break;
+                  case 15:
+                    res = 20;
+                    break;
+                  default:
+                    res = 30;
+                    break;
+                }</span></span>
+              </code>
+            </pre>
+            <hr>
+
+            <p>
+              A common algorithm you may see is the evaluation against <em>true</em> using a <em>switch statement</em>. This is a cool concept as it allows you to write powerful case evaluations. Below is an example of this:
+            </p>
+
+            <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Example:</strong>
+            <pre class="line-numbers" data-start="1">
+              <code class="language-javascript">
+                let tip;
+                let price = 37.50;
+                switch (true) {
+                  case (price > 50):
+                    tip = price * 0.10;
+                    break;
+                  case (price <= 50 && price >= 30):
+                    tip = price * 0.15;
+                    break;
+                  default:
+                    tip = price * 0.20;
+                    break;
+                }
+              </code>
+            </pre>
+
+            <p class="note">
+              I tend to put the above logic on tests so I recommend keeping track of it 😉.
+            </p>
+          </div>
+
+          <div>
+            <h3>Ternary</h3>
+
+            <p>
+              We can't talk about <em>conditional logic structures</em> and not talk about the <em>most beautiful shorthand in the world!</em> I'm, of course, talking about <em>ternary statements</em>. <em>Ternaries</em> are a quick one-liner syntax that will evaluate a condition and <em>return a value for true or a value for false</em>. Ternaries are great for <em>toggle logic</em> and creating clean <em>program readability</em>.
+            </p>
+            
+            <div>
+              <i class="fas fa-code ie"></i>&nbsp;<strong class="ie">Example (hover over red text to see what it does):</strong>
+              <pre>
+                <code>
+let age = 40;
+let stmnt = <span class="em no-tooltip-icon" data-toggle="tooltip" title="The condition we're evaluating." data-placement="left">(age >= 40)</span> <span class="em no-tooltip-icon" data-toggle="tooltip" data-placement="left" title="The first half of the ternary operator.">?</span> <span class="em no-tooltip-icon" data-toggle="tooltip"  data-placement="left" title="If the condition is true it will return 'old' (the left side of the : ).">"old"</span> <span class="em no-tooltip-icon" data-toggle="tooltip" data-placement="left" title="The second half of the ternary operator.">:</span> <span class="em no-tooltip-icon" data-toggle="tooltip" data-placement="left" title="If the condition is false it will return 'young' (the right side of the : ).">"young"</span>;
+                </code>
+              </pre>
+            </div>
+
+            <p class="note">
+              In addition to basic ternaries you can also do complex nested ternaries. Though this greatly diminishes readability.
+            </p>
+
+            <hr>
+            <i class="fas fa-code practice"></i>&nbsp;<strong class="practice">Last Practice:</strong>
+            <small class="em">Ternary statement.</small>
+            <pre class="line-numbers" data-start="84">
+              <code class="language-javascript">
+                // Step 18: Write a ternary that turns the light switch
+                // off if it's on and on if it's off
+                let lightSwitch = 'on';
+                <span id="step18"></span>
+              </code>
+            </pre>
+            <hr>
+          </div>
+        </section>
+      </article>
+    </div>
+    
+    <!-- THIRD PARTY JAVASCRIPT -->
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+
+    <!-- Prism -->
+    <script type="text/javascript" src="../../assets/prism.js"></script>
+
+    <!-- Shaun JS -->
+    <script type="text/javascript" src="../../assets/main.js"></script>
+    <!-- END OF THIRD PARTY JAVASCRIPT -->
+
+
+    <!-- --------------------------- -->
+    <!-- Your JS -->
+    <script type="text/javascript" src="main.js"></script>
+    <!-- End of your JS -->
+    <!-- --------------------------- -->
+
+
+    <!-- Evaluation Code -->
+    <!-- This code is for evaluating your scripts -->
+    <script type="text/javascript" src="evaluate.js"></script>
+    <!-- End of Evaluation Code  -->
+  </body>
+</html>
