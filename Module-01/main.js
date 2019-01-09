@@ -30,7 +30,7 @@ greeting = "lajsdfj"
 // visibility and make it immutable.
 
 // Step 9: Create a variable with the symbol name
-// 'favNum' and assign it the string value of your
+// 'favNum' and assign it the number value of your
 // favourite number. Give it only global visibility
 // and make it mutable.
 
