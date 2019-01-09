@@ -1,5 +1,6 @@
 // Step 1: Create a variable with the symbol name
 // 'greeting' and assign it the value of 'Hello World'
+greeting = "lajsdfj"
 
 // Step 2: Create a variable with the symbol name
 // 'fullName' and assign it the value of your name
