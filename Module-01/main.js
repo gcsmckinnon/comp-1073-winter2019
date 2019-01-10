@@ -35,13 +35,13 @@ greeting = "lajsdfj"
 // and make it mutable.
 
 // Step 10: Compare 5 and "5" so it is true using loose comparison
-
+let q;
 // Step 11: Compare 7 and 3 so it is true using greater than
-
+let w;
 // Step 12: Compare "Shaun" and "Bob" so it is true using loose comparison
-
+let e;
 // Step 13: Compare 5 and "5" so it is false using strict comparison
-
+let r;
 // Step 14: Compare both expressions so it's true
 // using the correct logical operator
 let expa1 = 5 < 6;
