@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+      <!-- Shaun CSS -->
+      <link href='../../assets/styles.css' rel='stylesheet' type='text/css'>
+      <!-- Your CSS -->
+      <link href='./styles.css' rel='stylesheet' type='text/css'>
+      <title>Basic Syntax Rules, Arrays, and Loops</title>
+   </head>
+   <body>
+      <div class='container'>
+         <header class='mt-5'>
+            <h1>Basic Syntax Rules, Arrays, and Loops</h1>
+         </header>
+         <hr>
+         <hr>
+         <article class='lesson'>
+            <section class='class'>
+               <header>
+                  <h2>Basic Syntax Rules</h2>
+               </header>
+               <div>
+                  <h3><content=>Semi-colon</content=></h3>
+                  <p>
+                     There are some basic syntax rules when working with JavaScript as well as some basic conventions. For example, it is important that
+                     <em>we terminate all statements with a</em>
+                     <span class="em" data-toggle="tooltip" title=";"><content=>semi-colon.</content=></span>
+                     This will ensure that we don't have any issues with one statement bleeding into another:
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Terminating statements with semi-colons</strong>
+                  <pre class='line-numbers' data-start='1'></pre>
+                  <code class='language-javascript'>// Below are examples of statements
+                  let x = 5;
+                  x = x === 5 ? 10 : 5;</code>
+               </div>
+               <div>
+                  <h3><content=>Assignment VS Comparison</content=></h3>
+                  <p>
+                     It is important not to confuse
+                     <em>assignment operators</em>
+                     with
+                     <em>comparison operators.</em>
+                     Doing so can result in overwriting a value or a reference error.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Assigning instead of comparing</strong>
+                  <pre class='line-numbers' data-line='3' data-start='1'><code class='language-javascript'>// Common mistake
+let x = 5;
+if (x = 10) {
+  x = 15;
+}</code></pre>
+                  <p>
+                     In the code above
+                     <em>x</em>
+                     will be equal to
+                     <em>15.</em>
+                     This may seem confusing but if you follow the steps you will see what has happened here:
+                  </p>
+                  <ol>
+                     <li>
+                        Declared
+                        <em>x</em>
+                        and gave it the value of
+                        <em>5.</em>
+                     </li>
+                     <li>
+                        Attempted to see if
+                        <em>x</em>
+                        is equal to
+                        <em>10</em>
+                        but instead accidentally
+                        <em>assigned 10 to x.</em>
+                     </li>
+                     <li>
+                        Because the evaluation doesn't
+                        <em>explicitly equal false</em>
+                        the condition block will execute resulting in
+                        <em>x equalling 15.</em>
+                     </li>
+                  </ol>
+                  <p>
+                     <em>Below is the correct way to write the code:</em>
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Properly comparing</strong>
+                  <pre class='line-numbers' data-line='3' data-start='1'></pre>
+                  <code class='language-javascript'>// Common mistake
+                  let x = 5;
+                  if (x === 10) {
+                  x = 15;
+                  }</code>
+               </div>
+               <div>
+                  <h3><content=>Commenting</content=></h3>
+                  <p>
+                     Writing comments in JavaScript is quite simple. JavaScript supports
+                     <em>single-line comments</em>
+                     as well as
+                     <em>multi-line comments.</em>
+                     Below is an example of both:
+                  </p>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// This is a single-line comment.
+// So is this.
+// This too.
+
+/*
+  This is a multi-line
+  comment. Notice how it
+  spans across multiple
+  lines.  
+*/
+/* This is also a multi-line comment. */</code></pre>
+                  <p>
+                     <em>Single-line comments</em>
+                     are prefixed by the
+                     <em>//</em>
+                     syntax.
+                     <em>Multi-line comments</em>
+                     are wrapped using the
+                     <em>/* and */</em>
+                     syntax.
+                  </p>
+               </div>
+            </section>
+            <hr>
+            <section class='class'>
+               <header>
+                  <h2>Introducing Arrays</h2>
+               </header>
+               <div>
+                  <h3>
+                     <content>RECAP: </content>
+                     <content=>What is an array?</content=>
+                  </h3>
+                  <p>
+                     <em>Arrays</em>
+                     are essentially
+                     <em>lists of items.</em>
+                     In most strict languages, these list must be the same data type. However, in JavaScript, arrays can be composed of many different types of data.
+                     <small class="em note"><content=>While this is possible, it is not considered best practice. It is much easier to work with data when it is consistently the same structure and type.</content=></small>
+                  </p>
+                  <p>
+                     <em>Arrays</em>
+                     in other languages often have to be pre-declared with a set size. In JavaScript, this is unnecessary. Arrays can be various sizes and will tend to shrink and grow as the array progresses through your application.
+                  </p>
+               </div>
+               <div>
+                  <h3><content=>Array Syntax in JavaScript</content=></h3>
+                  <p>
+                     <small>
+                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"><content=>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</content=></a>
+                     </small>
+                  </p>
+                  <p>
+                     The syntax for arrays in JavaScript is similar to the syntax in many other languages:
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Array Syntax Examples</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Array syntax
+let names = ["Shaun", "Bob", "Dave"];
+
+// Accessing an element
+return names[0]; // outputs "Shaun"
+return names[2]; // outputs "Dave"</code></pre>
+                  <p>
+                     <em>Arrays are zero-indexed</em>
+                     meaning if want to access the first item in the array you have to use
+                     <em>[0].</em>
+                     This is common in most languages and hopefully shouldn't be new.
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>Let's create our first JavaScript Array</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 1: Assign the provide variable a 3 item array.
+// Make all 3 items favourite foods.
+<span id='step1'></span>
+
+// Step 2: Access the first item in the array
+<span id='step2'></span>
+
+// Step 3: Access the last item in the array
+<span id='step3'></span></code></pre>
+                  <hr>
+               </div>
+               <div>
+                  <h3><content=>The Mighty Console</content=></h3>
+                  <p>
+                     The
+                     <em>JavaScript console</em>
+                     is a way for us to debug our code and review output.
+                     <em>The console is tremendously powerful and crucial to being a good JavaScript developer.</em>
+                     In order to output informationt to the console, we must learn an important command:
+                     <em>console.log</em>
+                  </p>
+                  <p>
+                     Below are some code examples. All the major browsers have consoles available to them, though they may have a variety of ways to open them.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Opening Consoles:</strong>
+                  <table class='table table-striped'>
+                     <thead>
+                        <tr>
+                           <th>Browser</th>
+                           <th>Shortcut Windows</th>
+                           <th>Shortcut Mac</th>
+                           <th>Menu Path</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Chrome</td>
+                           <td>F12 or Ctrl+Shift+J</td>
+                           <td>CMD+Shift+J</td>
+                           <td>More Tools > Developer Tools then select console</td>
+                        </tr>
+                        <tr>
+                           <td>Firefox</td>
+                           <td>F12 or Ctrl+Shift+I then select console</td>
+                           <td>CMD+Shift+J</td>
+                           <td>Web Developer > Toggle Tools then select console</td>
+                        </tr>
+                        <tr>
+                           <td>Edge</td>
+                           <td>F12 or Ctrl+Shift+I then select console</td>
+                           <td>N/A</td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <td>Safari</td>
+                           <td>N/A</td>
+                           <td></td>
+                           <td>Preferences > Advanced then enable "Show Developer Menu in Menu Bar" THEN Develop > Show Web Inspector then select console</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Console Log syntax</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Using console to see a variable's value
+let x = 15;
+console.log(x);</code></pre>
+                  <p class='mt-5'>
+                     <em>
+                     <span class="em" data-toggle="tooltip" title="console is actually a JavaScript object. It has many various methods available to it through the .(dot) syntax."><content=>console</content=></span>.<span class="em" data-toggle="tooltip" title="log is only one of several methods available to the console object. If you want to see more, type 'console.' in your browser's console, and you should see a preview of the other methods available."><content=>log</content=></span>
+                     </em>
+                     can accept a list of parameters. It will then output each one individually, but likely on the same line:
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example:</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Using console to see a variable's value
+let x = 15;
+let y = 25;
+console.log(x, y, "I love cheese");</code></pre>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Console output of the above code:</strong>
+                  <br>
+                  <img alt='A preview of the console tools for an array value.' class='img-responsive img-thumbnail' src='images/console-value-preview.png'>
+                  <p class='mt-5'>
+                     The
+                     <em>console</em>
+                     provides more information than just values. It can be interactive and allow us to explore a particular structure. For example
+                     <em>if we output an array's value</em>
+                     we can
+                     <em>use the controls next to the array</em>
+                     to view its items:
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example:</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Using console to see an array's list items
+let names = ["Shaun", "Bob", "Karen", "Joe"];
+console.log(names);</code></pre>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Console output of the above code:</strong>
+                  <br>
+                  <img alt='A preview of the console tools for an array value.' class='img-responsive img-thumbnail' src='images/console-array-preview.png'>
+                  <p class='note'>
+                     When we get into more advanced concepts, you will quickly see how powerful the console.log can become!
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>Let's work in the console a little</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 4: Open your console and copy and paste the
+// the message into the provided variable (NOTE: Computers
+// are literal, so copy&paste so you don't have a syntax error):
+<span id='step4'></span>
+
+// Step 5: Using the console.log syntax, output the
+// value of 'mySecretVar', and copy and paste the
+// the value in the following variable:
+<span id='step5'></span>
+
+// Step 6: Using the console.log, output the
+// array value 'mySecretArr'. Record how many
+// elements there are in the following variable:
+<span id='step6'></span></code></pre>
+                  <hr>
+               </div>
+               <div>
+                  <h3><content=>Nested Arrays</content=></h3>
+                  <p>
+                     <em>Nested arrays</em>
+                     are simply
+                     <em>arrays used as values in another array.</em>
+                     Nested arrays are common and can be sometimes difficult to work with as they often require nested iterations in order to work with the data. That being said, it is important to be able to recognize a nested array, and access the data within a nested array.
+                  </p>
+                  <p>
+                     Below is an example of a nested array. The idea here is that we're storing 3 students; we're using nested arrays to keep our data types separate and taking advantage of the array indexes to put them back together.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Nested array syntax and access</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>\// Nested array syntax
+let students = [
+  [56789, 56790, 56791],
+  ["Dave", "Bob", "Sally"],
+  ["Smith", "Alto", "Struthers"],
+  [
+    ["math", "science", "english"],
+    ["french", "science", "geography"],
+    ["music", "communications", "english"],
+  ],
+  [
+    [96, 53, 85],
+    [76, 83, 82],
+    [98, 21, 56],
+  ]
+];
+
+// Accessing Sally's info
+let studentID = students[0][2];
+let studentName = students[1][2] + " " + students[2][2];
+let studentCourse1 = students[3][2][0];
+let studentCourseGrade1 = students[4][2][0];</code></pre>
+                  <p>
+                     In the above example you can see why arrays aren't necessarily the best for this type of data, but this is exactly how most tabular data is stored. The main difficulty with this is if we have a student that needs to be added in before Sally, or perhaps after Dave. We would have to keep track of their index and write large algorithms to process changes like that.
+                  </p>
+                  <p>
+                     But what's the fun in having this structure if we don't at least challenge you to access some data from it:
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>Let's access some data from the nested array</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 7: Access and store Dave's science grade.
+<span id='step7'></span>
+// Step 8: Access and store Bob's last name.
+<span id='step8'></span>
+// Step 9: Access and store Bob's geography grade.
+<span id='step9'></span></code></pre>
+                  <hr>
+               </div>
+            </section>
+            <hr>
+            <section class='class'>
+               <header>
+                  <h2>Adding/Removing Array Items</h2>
+               </header>
+               <div>
+                  <h3><content=>EVERYTHINGs An Object...😕</content=></h3>
+                  <p>
+                     This is a bizarre learning path, but it is important to understand a basic JavaScript concept:
+                     <em>
+                     <span class="em" data-toggle="tooltip" title="MOST but NOT ALL things in JavaScript are objects. Primitive values such as strings, numbers, booleans, null, and undefined are not objects. However, when you attempt to call a method on these values they will temporarily convert them to their object counterpart."><content=>MOST things in JavaScript are objects.</content=></span>
+                     </em>
+                     <em>
+                     This is important to understand early so you're not caught unaware when we attempt methods on values that we haven't explicitly cast as new objects.
+                     </em>
+                  </p>
+                  <p>
+                     I'm going to use the terminology
+                     <em>properties to describe values in an object</em>
+                     and
+                     <em>methods to describe functions in an object.</em>
+                     This may seem like a no-brainer, but for absolute transparency
+                     <em>objects in JavaScript only have properties,</em>
+                     <strong>BUT,</strong>
+                     <em>properties can have any value including the value of a</em>
+                     <span class="em" data-toggle="tooltip" title="A function definition is the literal syntax you write to create a function. What actually executes that definition are the () parenthesis. This means we can store a function definition in a variable and execute it at a later time. This gives us some pretty crazy powers in JavaScript (and some other languages that support this)."><content=>function definition.</content=></span>
+                     The reason you need to know the difference is sometimes we use () parenthesis and sometimes we don't. When you use the parenthesis,
+                     <em>you're executing a function.</em>
+                     When you don't,
+                     <em>you're reading a value.</em>
+                  </p>
+               </div>
+               <div>
+                  <h3><content=>Size Matters...Array Lengths!</content=></h3>
+                  <p>
+                     Knowing how many items (elements) are in an array is an important concept, especially when working with dynamically sizable arrays. The reason it's valuable is because often we want to validate the array has content, that the array has a range of items, or we want to
+                     <span class="em" data-toggle="tooltip" title="Iterating over arrays is very common. JavaScript gives us 4 different ways to iterate over an array as well as many iterative methods for filtering, reducing, or processing array elements."><content=>iterate over the array elements.</content=></span>
+                  </p>
+                  <p>
+                     As said before, most things in JavaScript are objects, and that applies to arrays. This means that array values have properties and methods available to us. If we want to quickly see a list of those methods, we can simply begin typing
+                     <em>[].</em>
+                     in our console and we will see a hint list of properties and methods available to the array object
+                  </p>
+                  <img alt='These are methods available to an array.' class='img-responsive img-thumbnail' src='./images/array-methods-preview.png'>
+                  <p>
+                     As I said before, knowing how many elements an array has can be handy especially when we want to loop over them. We can use a handy property to access the array size known as
+                     <em>length.</em>
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Accessing an array size</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Bob", "Sally", "Dave"];
+let myArrSize = myArr.length; // 3</code></pre>
+                  <p>
+                     The above variable, myArrSize, will have the value of
+                     <em>3.</em>
+                     .length is handy, but limited. It will only tell you the
+                     <em>shallow length</em>
+                     of an array. This means it won't count nested array elements. Let's test this:
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>Record the appropriate number of elements</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 10: Using .length, how many elements does the
+// 'students' array have?
+<span id='step10'></span>
+// Step 11: Using .length, how many elements does the
+// 'students' first names array have?
+<span id='step11'></span>
+// Step 12: Using .length, how many elements does the
+// 'students' course list array have?
+<span id='step12'></span></code></pre>
+                  <hr>
+               </div>
+               <div>
+                  <h3><content=>Adding Elements to an Array</content=></h3>
+                  <p>
+                     <em>Like the property .length,</em>
+                     arrays also provide methods for adding and removing elements from an array. Being able to add elements to an array is what makes our arrays dynamically sizable. We have 2 common ways for adding elements to our array:
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Adding elements to the end of an array using .push()</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+
+\// Adding 1 new element
+myArr.push("George");
+
+\// Adding multiple new elements
+myArr.push("Tommy", "Murray", "Esmerelda");
+
+\// Results: ["Shaun", "Dave", "Sally", "George", "Tommy", "Murray", "Esmerelda"]</code></pre>
+                  <p>
+                     <em>.push()</em>
+                     adds new elements to the
+                     <em>end of an array.</em>
+                     It accepts a list of items that will be pushed on as a new array elements.
+                  </p>
+                  <hr>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Adding elements to the beginning of an array using .unshift()</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+
+\// Adding 1 new element
+myArr.unshift("George");
+
+\// Adding multiple new elements
+myArr.unshift("Tommy", "Murray", "Esmerelda");
+
+\// Results: ["Tommy", "Murray", "Esmerelda", "George", "Shaun", "Dave", "Sally"]</code></pre>
+                  <p>
+                     <em>.unshift()</em>
+                     adds new elements to the
+                     <em>beginning of an array.</em>
+                     It accepts a list of items that will be added.
+                  </p>
+               </div>
+               <div>
+                  <h3><content=>Removing Elements from an Array</content=></h3>
+                  <p>
+                     If we can add elements, obviously we need to be able to
+                     <em>remove elements:</em>
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Removing elements from the end of an array using .pop()</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+
+\// Adding 1 new element
+myArr.pop(); // returns "Sally"
+
+\// Results: ["Shaun", "Dave"]</code></pre>
+                  <p>
+                     <em>.pop()</em>
+                     removes elements from the
+                     <em>end of an array.</em>
+                     It takes no arguments and can only remove 1 element at a time.
+                  </p>
+                  <hr>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Removing elements from the beginning of an array using .shift()</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+
+\// Adding 1 new element
+myArr.shift();
+
+\// Results: ["Dave", "Sally"]</code></pre>
+                  <p>
+                     <em>.shift()</em>
+                     removes elements from the
+                     <em>beginning of an array.</em>
+                     It accepts no arguments, so you can only remove one element at a time.
+                  </p>
+               </div>
+               <div>
+                  <h3><content=>Adding/Removing Elements from an Array Using .splice()</content=></h3>
+                  <p>
+                     <em>.splice() is an interesting method that allows you to add or remove elements from an array at any point in the array. For example, adding a new element to an array between the first 2 elements:</em>
+                  </p>
+                  <small class='note'>
+                  </small>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Adding new element between "Shaun" and "Dave"</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+
+\// Adds "Frank" inbetween "Shaun" & "Dave"
+myArr.splice(1, 0, "Frank");
+
+\// Results: ["Shaun", "Frank", "Dave", "Sally"]</code></pre>
+               </div>
+               <div>
+                  <h3><content=>Adding and Removing Elements Practice</content=></h3>
+                  <p>
+                     <em>Below</em>
+                     are some practice steps interacting with adding and removing elements using
+                     <em>.pop(), .push, .unshift(), .shift(), and .splice():</em>
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>Let's add/remove items</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let initArr = [1, 2, 3];
+// Step 13: Using .push(), add the following 3 numbers
+// to the array: 4, 5, and 6.
+<span id='step13'></span>
+// Step 14: Using .unshift(), add the following 2 numbers
+// to the array: 7, 8.
+<span id='step14'></span>
+// Step 15: Using .pop(), remove the last number from the
+// array.
+<span id='step15'></span>
+// Step 16: Using .shift(), remove the first number from
+// the array
+<span id='step16'></span>
+// Step 17: Using .splice(), add the number 256 between
+// 2 and 3
+<span id='step17'></span>
+<span id='step13to17testResult'></span></code></pre>
+                  <hr>
+               </div>
+            </section>
+            <hr>
+            <section class='class'>
+               <header>
+                  <h2>Loops/Iteratives/Repetition Structures</h2>
+               </header>
+               <div>
+                  <h3><content=>While/Do While Loops</content=></h3>
+                  <p>
+                     <em>Repetition structures (loops)</em>
+                     are a huge part to efficient programming. There isn't a reason to repeat a process over and over again by copying and pasting code blocks. Loops help with readability and code efficiency.
+                  </p>
+                  <p>
+                     <em>while/do while</em>
+                     loops are generally used when we want to iterate an unknown amount of times. We don't generally use these when we're iterating over items in a list or a predefined data structure.
+                     <em>while/do while</em>
+                     are used heavily in
+                     <em>game development</em>
+                     as they make up the famous
+                     <em>game loop.</em>
+                     This is a loop that iterates infinitely and performs actions during each iteration to update player location, scores, graphics, and any other game logic that needs to be evaluated.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: while loop syntax</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// A sentinel variable to allow us to exit
+// at the correct time
+let sentinel = 0;
+
+while (sentinel < 10) {
+  sentinel += 1;
+}
+
+// sentinel is equal to 10</code></pre>
+                  <p>
+                     <em>The above code</em>
+                     will iterate 10 times, adding 1 to sentinel each time.
+                     <em>while loops only execute if the condition they're evaluating is true. As soon as it fails, they exit their block and move on.</em>
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: do while loop syntax</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let sentinel = 10;
+
+do {
+  sentinel += 1;
+} while (sentinel < 10);
+
+// sentinel is equal to 11</code></pre>
+                  <p>
+                     <em>The above code</em>
+                     will iterate once even though the condition is false. That's what
+                     <em>do</em>
+                     is instructing the interpreter. It basically says
+                     <em>"do the following code, check the condition, then do the code again unless the condition is false."</em>
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>while and do while loops</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 18: Write a while loop that increments the
+// sentinel 8 times
+let sentinel = 0;
+
+<span id="step18">while (sentinel < 8) {
+  sentinel += 1;
+}</span>
+
+// Step 19: Write a do while loop that increments the
+// sentinel 2 more times
+<span id="step19">do {
+  sentinel += 1;
+} while (sentinel < 10)</span></code></pre>
+               </div>
+               <div>
+                  <h3><content=>For Loops</content=></h3>
+                  <p>
+                     <em>for loops</em>
+                     are used primarily for a fixed number of iterations. When we know (or can calculate) the number of loops needed to complete our logic, then for loops are the best choice. They are also our tool of choice when iterating over a list of elements and performing operations on each item.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: for loop syntax</strong>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let nums = [];
+// Common for loop syntax
+for (let i = 0; i < 10; i++) {
+  nums.push(i);
+}
+
+// Result: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+                  <p>
+                     <em>The above code</em>
+                     will iterate 10 times, each time adding the value of
+                     <em>i</em>
+                     to the nums array. The structure for a
+                     <em>for loop</em>
+                     is as follows:
+                  </p>
+                  <p>
+                     <span class="em" data-toggle="tooltip" title="The command to tell the interpreter that for each iteration we want to execute the following code based on the passed arguments."><content=>for</content=></span> (<span class="em" data-toggle="tooltip" title="The initializer. This is essentially our counter that we can use to evaluate whether we should stop iterating or continue."><content=>let i = 0;</content=></span>, <span class="em" data-toggle="tooltip" title="This is the condition that is evaluate on each iteration."><content=>i &lt; 10;</content=></span>, <span class="em" data-toggle="tooltip" title="This is our incrementer. You can also decrement, or provide a completely different expression."><content=>i++</content=></span>) <span class="em" data-toggle="tooltip" title="The following block will execute providing the condition evaluates to true."><content=>{}</content=></span>
+                  </p>
+                  <p>
+                     Sometimes you may see this structure written differently as some of the arguments are optional. The above is the most common way it's written.
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>for loops</small>
+                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 20: Write a for loop that adds 0 to 10 together
+let forLoopValue = 0;
+
+<span id="step20">for (let i = 0; i <= 10; i++) {
+  forLoopValue += i;
+}</span></code></pre>
+               </div>
+               <div>
+                  <h3><content=>Array Loops</content=></h3>
+                  <p>
+                     Arrays in JavaScript have special loop structures just for them. The
+                     <em>for/of loop</em>
+                     is a human-readable way to iterate over items in the array list and perform operations on each specific element. Objects also have their own special loop. These loop structures were introduced in
+                     <em>ES5</em>
+                     and have become integral to clean readable JavaScript programming.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: for loop array iteration syntax</strong>
+                  <pre class='line-numbers' data-start='1'>
+                    <code class='language-javascript'>
+                      let myArr = [2, 3, 4, 5];
+
+                      for (let i = 0; i < myArr.length; i++) {
+                        console.log(myArr[i]);
+                      }
+
+                      // Will output each element's value
+                    </code>
+                  </pre>
+                  <p>
+                     <em>The above code</em>
+                     illustrates how to iterate over an array and access each element. Notice the use of
+                     <em>.length.</em>
+                     This helps us set how many times we want to iterate.
+                  </p>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: for/of loop array iteration syntax</strong>
+                  <pre class='line-numbers' data-start='1'>
+                    <code class='language-javascript'>
+                      let myArr = [2, 3, 4, 5];
+
+                      for (let ele of myArr) {
+                        console.log(ele);
+                      }
+
+                      // Will output each element's value
+                    </code>
+                  </pre>
+                  <p>
+                     <em>The above code</em>
+                     makes use of the ES5 for/of loop structure. This syntax makes it a lot easier to work with arrays as it eliminates the need to count the array.
+                  </p>
+                  <hr>
+                  <i class='fas fa-code practice'>
+                  &nbsp;
+                  <strong class='practice'>Practice:</strong>
+                  </i>
+                  <small class='em'>for and for/of loop array iteration syntax</small>
+                  <pre class='line-numbers' data-start='1'>
+                    <code class='language-javascript'>
+                      // Step 21: Write a for/of loop that adds all
+                      // the values together
+                      let forOfLoopValue = 0;
+                      let exArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                      <span id="step21">for (let ele of exArr) {
+                        forOfLoopValue += ele;
+                      }</span>
+                    </code>
+                  </pre>
+               </div>
+            </section>
+         </article>
+      </div>
+      <!-- THIRD PARTY JAVASCRIPT -->
+      <!-- Bootstrap JS -->
+      <script crossorigin='anonymous' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+      <script crossorigin='anonymous' integrity='sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP' src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js'></script>
+      <!-- Prism -->
+      <script src='../../assets/prism.js' type='text/javascript'></script>
+      <!-- Shaun JS -->
+      <script src='../../assets/main.js' type='text/javascript'></script>
+      <!-- END OF THIRD PARTY JAVASCRIPT -->
+      <!-- --------------------------- -->
+      <!-- Your JS -->
+      <script src='./main.js' type='text/javascript'></script>
+      <!-- End of your JS -->
+      <!-- --------------------------- -->
+      <!-- Evaluation Code -->
+      <!-- This code is for evaluating your scripts -->
+      <script src='./evaluate.js' type='text/javascript'></script>
+      <!-- End of Evaluation Code -->
+   </body>
+</html>

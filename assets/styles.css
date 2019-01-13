@@ -1,107 +1,87 @@
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css");
 @import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
 @import url("./prism.css");
-
 body {
   background: #ecf0f1;
-}
+  padding-bottom: 15em; }
 
 *, p, a {
   color: #34495e;
-  text-shadow:0px 2px 3px #fff;
-}
+  text-shadow: 0px 2px 3px #fff; }
 
 span.hide {
-  display: none;
-}
+  display: none; }
 
 /* Bootstrap tooltip/Prism reset styles */
 .tooltip-inner, .token, .line-numbers-rows > span {
-  text-shadow: none;
-}
+  text-shadow: none; }
 
 [data-toggle="tooltip"] {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 [data-toggle="tooltip"]::after {
   font-family: "Font Awesome 5 Free";
   content: "\f06a";
   vertical-align: super;
   font-size: 0.25em;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .no-tooltip-icon::after {
-  content: none;
-}
+  content: none; }
 
 .note {
   display: block;
   margin: 0.25em;
   color: #95a5a6 !important;
-  font-weight: normal !important;
-}
+  font-weight: normal !important; }
 
 .note::before {
   font-family: "Font Awesome 5 Free";
   content: "\f06a";
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .ie {
-  color: #3498db;
-}
+  color: #3498db; }
 
 .practice {
-  color: #f1c40f; 
-}
+  color: #f1c40f; }
 
 h1 {
   color: #34495e;
   font-weight: bold;
-  font-size: 4em;
-}
+  font-size: 4em; }
 
 section {
   border-left: 30px solid #c0392b;
-  padding-left: 2em;
-}
+  padding-left: 2em; }
 
 h3 {
-  margin-top: 2em;
-}
+  margin-top: 2em; }
 
 p {
-  margin-left: 2em;
-}
+  margin-left: 2em; }
 
-p > em, .em {
+em, .em {
   font-weight: bold;
   color: #c0392b;
-  font-style: normal;
-}
+  font-style: normal; }
 
 .example {
   display: block;
   margin: 0.5em 0;
   font-weight: bold;
-  color: #3498db;
-}
+  color: #3498db; }
 
 .example::before {
   content: "Output: ";
-  color: #c0392b;
-}
+  color: #c0392b; }
 
 .theAwesomeClass {
   display: block;
   text-shadow: none;
-  text-align: center;
-}
+  text-align: center; }
 
 .theAwesomeClass p {
   text-shadow: none;
   color: inherit;
-  margin: inherit;
-}
+  margin: inherit; }
