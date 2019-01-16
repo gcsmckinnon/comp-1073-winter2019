@@ -30,10 +30,13 @@
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Terminating statements with semi-colons</strong>
-                  <pre class='line-numbers' data-start='1'></pre>
-                  <code class='language-javascript'>// Below are examples of statements
-                  let x = 5;
-                  x = x === 5 ? 10 : 5;</code>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Below are examples of statements
+                        let x = 5;
+                        x = x === 5 ? 10 : 5;
+                     </code>
+                  </pre>
                </div>
                <div>
                   <h3><content=>Assignment VS Comparison</content=></h3>
@@ -46,11 +49,15 @@
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Assigning instead of comparing</strong>
-                  <pre class='line-numbers' data-line='3' data-start='1'><code class='language-javascript'>// Common mistake
-let x = 5;
-if (x = 10) {
-  x = 15;
-}</code></pre>
+                  <pre class='line-numbers' data-line='3' data-start='1'>
+                     <code class='language-javascript'>
+                        // Common mistake
+                        let x = 5;
+                        if (x = 10) {
+                          x = 15;
+                        }
+                     </code>
+                  </pre>
                   <p>
                      In the code above
                      <em>x</em>
@@ -85,12 +92,15 @@ if (x = 10) {
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Properly comparing</strong>
-                  <pre class='line-numbers' data-line='3' data-start='1'></pre>
-                  <code class='language-javascript'>// Common mistake
-                  let x = 5;
-                  if (x === 10) {
-                  x = 15;
-                  }</code>
+                  <pre class='line-numbers' data-line='3' data-start='1'>
+                     <code class='language-javascript'>
+                        // Common mistake
+                        let x = 5;
+                        if (x === 10) {
+                        x = 15;
+                        }
+                     </code>
+                  </pre>
                </div>
                <div>
                   <h3><content=>Commenting</content=></h3>
@@ -101,17 +111,21 @@ if (x = 10) {
                      <em>multi-line comments.</em>
                      Below is an example of both:
                   </p>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// This is a single-line comment.
-// So is this.
-// This too.
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // This is a single-line comment.
+                        // So is this.
+                        // This too.
 
-/*
-  This is a multi-line
-  comment. Notice how it
-  spans across multiple
-  lines.  
-*/
-/* This is also a multi-line comment. */</code></pre>
+                        /*
+                          This is a multi-line
+                          comment. Notice how it
+                          spans across multiple
+                          lines.  
+                        */
+                        /* This is also a multi-line comment. */
+                     </code>
+                  </pre>
                   <p>
                      <em>Single-line comments</em>
                      are prefixed by the
@@ -158,12 +172,16 @@ if (x = 10) {
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Array Syntax Examples</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Array syntax
-let names = ["Shaun", "Bob", "Dave"];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Array syntax
+                        let names = ["Shaun", "Bob", "Dave"];
 
-// Accessing an element
-return names[0]; // outputs "Shaun"
-return names[2]; // outputs "Dave"</code></pre>
+                        // Accessing an element
+                        return names[0]; // outputs "Shaun"
+                        return names[2]; // outputs "Dave"
+                     </code>
+                  </pre>
                   <p>
                      <em>Arrays are zero-indexed</em>
                      meaning if want to access the first item in the array you have to use
@@ -176,15 +194,19 @@ return names[2]; // outputs "Dave"</code></pre>
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>Let's create our first JavaScript Array</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 1: Assign the provide variable a 3 item array.
-// Make all 3 items favourite foods.
-<span id='step1'></span>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Step 1: Assign the provide variable a 3 item array.
+                        // Make all 3 items favourite foods.
+                        <span id='step1'></span>
 
-// Step 2: Access the first item in the array
-<span id='step2'></span>
+                        // Step 2: Access the first item in the array
+                        <span id='step2'></span>
 
-// Step 3: Access the last item in the array
-<span id='step3'></span></code></pre>
+                        // Step 3: Access the last item in the array
+                        <span id='step3'></span>
+                     </code>
+                  </pre>
                   <hr>
                </div>
                <div>
@@ -240,21 +262,29 @@ return names[2]; // outputs "Dave"</code></pre>
                   </table>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Console Log syntax</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Using console to see a variable's value
-let x = 15;
-console.log(x);</code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Using console to see a variable's value
+                        let x = 15;
+                        console.log(x);
+                     </code>
+                  </pre>
                   <p class='mt-5'>
                      <em>
-                     <span class="em" data-toggle="tooltip" title="console is actually a JavaScript object. It has many various methods available to it through the .(dot) syntax."><content=>console</content=></span>.<span class="em" data-toggle="tooltip" title="log is only one of several methods available to the console object. If you want to see more, type 'console.' in your browser's console, and you should see a preview of the other methods available."><content=>log</content=></span>
+                     <span class="em" data-toggle="tooltip" title="console is actually a JavaScript object. It has many various methods available to it through the .(dot) syntax.">console</span>.<span class="em" data-toggle="tooltip" title="log is only one of several methods available to the console object. If you want to see more, type 'console.' in your browser's console, and you should see a preview of the other methods available.">log</span>
                      </em>
                      can accept a list of parameters. It will then output each one individually, but likely on the same line:
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example:</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Using console to see a variable's value
-let x = 15;
-let y = 25;
-console.log(x, y, "I love cheese");</code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Using console to see a variable's value
+                        let x = 15;
+                        let y = 25;
+                        console.log(x, y, "I love cheese");
+                     </code>
+                  </pre>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Console output of the above code:</strong>
                   <br>
@@ -270,9 +300,13 @@ console.log(x, y, "I love cheese");</code></pre>
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example:</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Using console to see an array's list items
-let names = ["Shaun", "Bob", "Karen", "Joe"];
-console.log(names);</code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Using console to see an array's list items
+                        let names = ["Shaun", "Bob", "Karen", "Joe"];
+                        console.log(names);
+                     </code>
+                  </pre>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Console output of the above code:</strong>
                   <br>
@@ -286,20 +320,24 @@ console.log(names);</code></pre>
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>Let's work in the console a little</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 4: Open your console and copy and paste the
-// the message into the provided variable (NOTE: Computers
-// are literal, so copy&paste so you don't have a syntax error):
-<span id='step4'></span>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Step 4: Open your console and copy and paste the
+                        // the message into the provided variable (NOTE: Computers
+                        // are literal, so copy&paste so you don't have a syntax error):
+                        <span id='step4'></span>
 
-// Step 5: Using the console.log syntax, output the
-// value of 'mySecretVar', and copy and paste the
-// the value in the following variable:
-<span id='step5'></span>
+                        // Step 5: Using the console.log syntax, output the
+                        // value of 'mySecretVar', and copy and paste the
+                        // the value in the following variable:
+                        <span id='step5'></span>
 
-// Step 6: Using the console.log, output the
-// array value 'mySecretArr'. Record how many
-// elements there are in the following variable:
-<span id='step6'></span></code></pre>
+                        // Step 6: Using the console.log, output the
+                        // array value 'mySecretArr'. Record how many
+                        // elements there are in the following variable:
+                        <span id='step6'></span>
+                     </code>
+                  </pre>
                   <hr>
                </div>
                <div>
@@ -315,28 +353,32 @@ console.log(names);</code></pre>
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Nested array syntax and access</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>\// Nested array syntax
-let students = [
-  [56789, 56790, 56791],
-  ["Dave", "Bob", "Sally"],
-  ["Smith", "Alto", "Struthers"],
-  [
-    ["math", "science", "english"],
-    ["french", "science", "geography"],
-    ["music", "communications", "english"],
-  ],
-  [
-    [96, 53, 85],
-    [76, 83, 82],
-    [98, 21, 56],
-  ]
-];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Nested array syntax
+                        let students = [
+                          [56789, 56790, 56791],
+                          ["Dave", "Bob", "Sally"],
+                          ["Smith", "Alto", "Struthers"],
+                          [
+                            ["math", "science", "english"],
+                            ["french", "science", "geography"],
+                            ["music", "communications", "english"],
+                          ],
+                          [
+                            [96, 53, 85],
+                            [76, 83, 82],
+                            [98, 21, 56],
+                          ]
+                        ];
 
-// Accessing Sally's info
-let studentID = students[0][2];
-let studentName = students[1][2] + " " + students[2][2];
-let studentCourse1 = students[3][2][0];
-let studentCourseGrade1 = students[4][2][0];</code></pre>
+                        // Accessing Sally's info
+                        let studentID = students[0][2];
+                        let studentName = students[1][2] + " " + students[2][2];
+                        let studentCourse1 = students[3][2][0];
+                        let studentCourseGrade1 = students[4][2][0];
+                     </code>
+                  </pre>
                   <p>
                      In the above example you can see why arrays aren't necessarily the best for this type of data, but this is exactly how most tabular data is stored. The main difficulty with this is if we have a student that needs to be added in before Sally, or perhaps after Dave. We would have to keep track of their index and write large algorithms to process changes like that.
                   </p>
@@ -349,12 +391,16 @@ let studentCourseGrade1 = students[4][2][0];</code></pre>
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>Let's access some data from the nested array</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 7: Access and store Dave's science grade.
-<span id='step7'></span>
-// Step 8: Access and store Bob's last name.
-<span id='step8'></span>
-// Step 9: Access and store Bob's geography grade.
-<span id='step9'></span></code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Step 7: Access and store Dave's science grade.
+                        <span id='step7'></span>
+                        // Step 8: Access and store Bob's last name.
+                        <span id='step8'></span>
+                        // Step 9: Access and store Bob's geography grade.
+                        <span id='step9'></span>
+                     </code>
+                  </pre>
                   <hr>
                </div>
             </section>
@@ -408,8 +454,12 @@ let studentCourseGrade1 = students[4][2][0];</code></pre>
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Accessing an array size</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Bob", "Sally", "Dave"];
-let myArrSize = myArr.length; // 3</code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let myArr = ["Bob", "Sally", "Dave"];
+                        let myArrSize = myArr.length; // 3
+                     </code>
+                  </pre>
                   <p>
                      The above variable, myArrSize, will have the value of
                      <em>3.</em>
@@ -423,15 +473,19 @@ let myArrSize = myArr.length; // 3</code></pre>
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>Record the appropriate number of elements</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 10: Using .length, how many elements does the
-// 'students' array have?
-<span id='step10'></span>
-// Step 11: Using .length, how many elements does the
-// 'students' first names array have?
-<span id='step11'></span>
-// Step 12: Using .length, how many elements does the
-// 'students' course list array have?
-<span id='step12'></span></code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Step 10: Using .length, how many elements does the
+                        // 'students' array have?
+                        <span id='step10'></span>
+                        // Step 11: Using .length, how many elements does the
+                        // 'students' first names array have?
+                        <span id='step11'></span>
+                        // Step 12: Using .length, how many elements does the
+                        // 'students' course list array have?
+                        <span id='step12'></span>
+                     </code>
+                  </pre>
                   <hr>
                </div>
                <div>
@@ -442,15 +496,19 @@ let myArrSize = myArr.length; // 3</code></pre>
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Adding elements to the end of an array using .push()</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let myArr = ["Shaun", "Dave", "Sally"];
 
-\// Adding 1 new element
-myArr.push("George");
+                        // Adding 1 new element
+                        myArr.push("George");
 
-\// Adding multiple new elements
-myArr.push("Tommy", "Murray", "Esmerelda");
+                        // Adding multiple new elements
+                        myArr.push("Tommy", "Murray", "Esmerelda");
 
-\// Results: ["Shaun", "Dave", "Sally", "George", "Tommy", "Murray", "Esmerelda"]</code></pre>
+                        // Results: ["Shaun", "Dave", "Sally", "George", "Tommy", "Murray", "Esmerelda"]
+                     </code>
+                  </pre>
                   <p>
                      <em>.push()</em>
                      adds new elements to the
@@ -460,15 +518,19 @@ myArr.push("Tommy", "Murray", "Esmerelda");
                   <hr>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Adding elements to the beginning of an array using .unshift()</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let myArr = ["Shaun", "Dave", "Sally"];
 
-\// Adding 1 new element
-myArr.unshift("George");
+                        // Adding 1 new element
+                        myArr.unshift("George");
 
-\// Adding multiple new elements
-myArr.unshift("Tommy", "Murray", "Esmerelda");
+                        // Adding multiple new elements
+                        myArr.unshift("Tommy", "Murray", "Esmerelda");
 
-\// Results: ["Tommy", "Murray", "Esmerelda", "George", "Shaun", "Dave", "Sally"]</code></pre>
+                        // Results: ["Tommy", "Murray", "Esmerelda", "George", "Shaun", "Dave", "Sally"]
+                     </code>
+                  </pre>
                   <p>
                      <em>.unshift()</em>
                      adds new elements to the
@@ -484,12 +546,16 @@ myArr.unshift("Tommy", "Murray", "Esmerelda");
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Removing elements from the end of an array using .pop()</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let myArr = ["Shaun", "Dave", "Sally"];
 
-\// Adding 1 new element
-myArr.pop(); // returns "Sally"
+                        // Adding 1 new element
+                        myArr.pop(); // returns "Sally"
 
-\// Results: ["Shaun", "Dave"]</code></pre>
+                        // Results: ["Shaun", "Dave"]
+                     </code>
+                  </pre>
                   <p>
                      <em>.pop()</em>
                      removes elements from the
@@ -499,12 +565,16 @@ myArr.pop(); // returns "Sally"
                   <hr>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Removing elements from the beginning of an array using .shift()</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let myArr = ["Shaun", "Dave", "Sally"];
 
-\// Adding 1 new element
-myArr.shift();
+                        // Adding 1 new element
+                        myArr.shift();
 
-\// Results: ["Dave", "Sally"]</code></pre>
+                        // Results: ["Dave", "Sally"]
+                     </code>
+                  </pre>
                   <p>
                      <em>.shift()</em>
                      removes elements from the
@@ -521,12 +591,16 @@ myArr.shift();
                   </small>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: Adding new element between "Shaun" and "Dave"</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let myArr = ["Shaun", "Dave", "Sally"];
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let myArr = ["Shaun", "Dave", "Sally"];
 
-\// Adds "Frank" inbetween "Shaun" & "Dave"
-myArr.splice(1, 0, "Frank");
+                        // Adds "Frank" inbetween "Shaun" & "Dave"
+                        myArr.splice(1, 0, "Frank");
 
-\// Results: ["Shaun", "Frank", "Dave", "Sally"]</code></pre>
+                        // Results: ["Shaun", "Frank", "Dave", "Sally"]
+                     </code>
+                  </pre>
                </div>
                <div>
                   <h3><content=>Adding and Removing Elements Practice</content=></h3>
@@ -541,23 +615,28 @@ myArr.splice(1, 0, "Frank");
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>Let's add/remove items</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let initArr = [1, 2, 3];
-// Step 13: Using .push(), add the following 3 numbers
-// to the array: 4, 5, and 6.
-<span id='step13'></span>
-// Step 14: Using .unshift(), add the following 2 numbers
-// to the array: 7, 8.
-<span id='step14'></span>
-// Step 15: Using .pop(), remove the last number from the
-// array.
-<span id='step15'></span>
-// Step 16: Using .shift(), remove the first number from
-// the array
-<span id='step16'></span>
-// Step 17: Using .splice(), add the number 256 between
-// 2 and 3
-<span id='step17'></span>
-<span id='step13to17testResult'></span></code></pre>
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let initArr = [1, 2, 3];
+
+                        // Step 13: Using .push(), add the following 3 numbers
+                        // to the array: 4, 5, and 6.
+                        <span id='step13'></span>
+                        // Step 14: Using .unshift(), add the following 2 numbers
+                        // to the array: 7, 8.
+                        <span id='step14'></span>
+                        // Step 15: Using .pop(), remove the last number from the
+                        // array.
+                        <span id='step15'></span>
+                        // Step 16: Using .shift(), remove the first number from
+                        // the array
+                        <span id='step16'></span>
+                        // Step 17: Using .splice(), add the number 256 between
+                        // 2 and 3
+                        <span id='step17'></span>
+                        <span id='step13to17testResult'></span>
+                     </code>
+                  </pre>
                   <hr>
                </div>
             </section>
@@ -584,15 +663,19 @@ myArr.splice(1, 0, "Frank");
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: while loop syntax</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// A sentinel variable to allow us to exit
-// at the correct time
-let sentinel = 0;
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // A sentinel variable to allow us to exit
+                        // at the correct time
+                        let sentinel = 0;
 
-while (sentinel < 10) {
-  sentinel += 1;
-}
+                        while (sentinel < 10) {
+                          sentinel += 1;
+                        }
 
-// sentinel is equal to 10</code></pre>
+                        // sentinel is equal to 10
+                     </code>
+                  </pre>
                   <p>
                      <em>The above code</em>
                      will iterate 10 times, adding 1 to sentinel each time.
@@ -600,13 +683,17 @@ while (sentinel < 10) {
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: do while loop syntax</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let sentinel = 10;
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let sentinel = 10;
 
-do {
-  sentinel += 1;
-} while (sentinel < 10);
+                        do {
+                          sentinel += 1;
+                        } while (sentinel < 10);
 
-// sentinel is equal to 11</code></pre>
+                        // sentinel is equal to 11
+                     </code>
+                  </pre>
                   <p>
                      <em>The above code</em>
                      will iterate once even though the condition is false. That's what
@@ -620,19 +707,23 @@ do {
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>while and do while loops</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 18: Write a while loop that increments the
-// sentinel 8 times
-let sentinel = 0;
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Step 18: Write a while loop that increments the
+                        // sentinel 8 times
+                        let sentinel = 0;
 
-<span id="step18">while (sentinel < 8) {
-  sentinel += 1;
-}</span>
+                        <span id="step18">while (sentinel < 8) {
+                          sentinel += 1;
+                        }</span>
 
-// Step 19: Write a do while loop that increments the
-// sentinel 2 more times
-<span id="step19">do {
-  sentinel += 1;
-} while (sentinel < 10)</span></code></pre>
+                        // Step 19: Write a do while loop that increments the
+                        // sentinel 2 more times
+                        <span id="step19">do {
+                          sentinel += 1;
+                        } while (sentinel < 10)</span>
+                     </code>
+                  </pre>
                </div>
                <div>
                   <h3><content=>For Loops</content=></h3>
@@ -642,13 +733,18 @@ let sentinel = 0;
                   </p>
                   <i class='fas fa-code ie'></i>
                   <strong class='ie'>Example: for loop syntax</strong>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>let nums = [];
-// Common for loop syntax
-for (let i = 0; i < 10; i++) {
-  nums.push(i);
-}
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        let nums = [];
 
-// Result: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+                        // Common for loop syntax
+                        for (let i = 0; i < 10; i++) {
+                          nums.push(i);
+                        }
+
+                        // Result: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+                     </code>
+                  </pre>
                   <p>
                      <em>The above code</em>
                      will iterate 10 times, each time adding the value of
@@ -669,12 +765,16 @@ for (let i = 0; i < 10; i++) {
                   <strong class='practice'>Practice:</strong>
                   </i>
                   <small class='em'>for loops</small>
-                  <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Step 20: Write a for loop that adds 0 to 10 together
-let forLoopValue = 0;
+                  <pre class='line-numbers' data-start='1'>
+                     <code class='language-javascript'>
+                        // Step 20: Write a for loop that adds 0 to 10 together
+                        let forLoopValue = 0;
 
-<span id="step20">for (let i = 0; i <= 10; i++) {
-  forLoopValue += i;
-}</span></code></pre>
+                        <span id="step20">for (let i = 0; i <= 10; i++) {
+                          forLoopValue += i;
+                        }</span>
+                     </code>
+                  </pre>
                </div>
                <div>
                   <h3><content=>Array Loops</content=></h3>

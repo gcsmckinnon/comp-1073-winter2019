@@ -1,4 +1,4 @@
-// Step 1: Assign the provide variable a 3 item array.
+// Step 1: Assign the provided variable a 3 item array.
 // Make all 3 items favourite foods.
 let myFavFoods;
 
@@ -65,7 +65,7 @@ let numOfStudentsCourses;
 
 
 // For steps 13 to 17
-let initArr;
+let initArr = [1, 2, 3];
 // Step 13: Using .push(), add the following 3 numbers
 // to the array: 4, 5, and 6.
 
@@ -91,6 +91,7 @@ let initArr;
 let sentinel = 0;
 
 
+
 // Step 19: Write a do while loop that increments the
 // sentinel 2 more times
 
@@ -102,3 +103,4 @@ let forLoopValue = 0;
 // Step 21: Write a for loop that adds 0 to 10 together
 let forOfLoopValue = 0;
 let exArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
