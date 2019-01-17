@@ -46,7 +46,7 @@ let students = [
 let davesSciGr;
 
 // Step 8: Access and store Bob's last name.
-let bobsLastName;
+let bobsLastName = students[2][1];
 
 // Step 9: Access and store Bob's geography grade.
 let bobsGeoGr;
