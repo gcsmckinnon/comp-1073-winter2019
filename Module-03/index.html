@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <!-- Shaun CSS -->
+    <link href='./assets/css/styles.css' rel='stylesheet' type='text/css'>
+    <!-- Your CSS -->
+    <link href='./assets/css/module-03.css' rel='stylesheet' type='text/css'>
+    <script src='./assets/js/codemirror.js'></script>
+    <script src='./assets/js/mode/javascript/javascript.js'></script>
+    <script src='./assets/js/addon/search/searchcursor.js'></script>
+    <script src='./assets/js/eval.js'></script>
+    <title>Library & Custom Functions</title>
+  </head>
+  <body>
+    <div class='container'>
+      <header class='mt-5'>
+        <h1>Library & Custom Functions</h1>
+      </header>
+      <hr>
+      <hr>
+      <article class='lesson'>
+        <!-- String Interpolation -->
+        <section>
+          <header>
+            <h2>But first...</h2>
+          </header>
+          <div>
+            <h3><content=>Concatenation</content=></h3>
+            <div>
+              <p>
+                We have (up to this point) used the standard string syntax utilizing the single quotes and the double quotes. You may ask what the difference is, and (to be honest) there really isn't any. Most developers don't really care which one you use as long as you're consistent. It is more common to use single quotes than double quotes.
+              </p>
+              <p>
+                Often (like, a LOT) we want to create a dynamic string utilizing a value we've concocted during our application's progress. Perhaps it's data from a source like a user or an API. Or perhaps it's a calculation we now want to output. Either way, we need some method to output our value in combination with a string. That is why we have concatenation. Concatenation is of merging 2 or more values together. This is definitely where a demonstration helps to illustrate the point:
+              </p>
+              <hr>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Concatenation</strong>
+                  <pre class='line-numbers'>
+                    <code class='language-javascript'>
+                      // Concatenation
+                      let price = 17;
+                      let subtotal = 'The price of the product is $' + price;
+                      let withTax = 'The tax is $' + (price * 0.10);
+                      let total = 'The total is $' + (price * 1.10) + '. Thank you for your patronage.';
+                    </code>
+                  </pre>
+                </div>
+                <div class='col-sm-6'>
+                  <i class='fas fa-code practice'></i>
+                  <strong class='practice'>Practice Title</strong>
+                  <br>
+<textarea class='practice'>
+// Step 1: Set your age in the variable below
+let age;
+
+// Step 2: Set your name in the variable below
+let name;
+
+// Step 3: Write a concatenated sentence using
+// the 2 variables above and assign it to the
+// variable below
+let bio;
+</textarea>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <div>
+            <h3><content=>String Interpolation</content=></h3>
+            <div>
+              <p>
+                Concatenation is cool, but string interpolation using the string template is by far MORE cool! It allows us to evaluate an expression inline with a string. Many languages support this feature using their double quote characters, however, JavaScript utilizes a third quote character instead; the backtick!
+              </p>
+              <p>
+                The ` backtick character can be found sharing space with the ~ tilde character. A set of these denotes you want to use string interpolation. In order to evaluate an expression, you simply wrap it in a set of {} curly braces and prefix it with a $ dollar sign:
+              </p>
+              <hr>
+              <div class='row'>
+                <div class='col-sm-6'>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Concatenation</strong>
+                  <pre class='line-numbers'>
+                    <code class='language-javascript'>
+                      // Concatenation
+                      let price = 17;
+                      let subtotal = 'The price of the product is $' + price;
+                      let withTax = `The tax is ${price * 0.10}`;
+                      let total = `The total is ${price * 1.10}. Thank you for your patronage.`;
+                    </code>
+                  </pre>
+                </div>
+                <div class='col-sm-6'>
+                  <i class='fas fa-code practice'></i>
+                  <strong class='practice'>Practice Title</strong>
+                  <br>
+<textarea class='practice'>
+// Step 4: Write a sentence using string
+// interpolation. Use the 2 variables above 
+// and assign it to the variable below
+// NOTE! There will be no variables above
+// unless you've completed steps 1 to 3 first!
+let bio;
+</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr class='m-5'>
+        <!-- Library Functions -->
+        <section>
+          <header>
+            <h2>Library Functions</h2>
+          </header>
+          <div>
+            <h3><content=>What the Func is a Function?</content=></h3>
+            <div>
+              <p>
+                Functions are essential to DRY code. They allow us encapsulate a block of logic to be reused over and over again as we need. They also allow us to abstract logic so it can meet various use cases. This is achieved through the use of parameters. Parameters are essentially variables scoped to the function. The developer using the function then passes arguments whose values will populate the variables allowing for value specific logic to be executed.
+              </p>
+              <p>
+                Objects have functions available to them as well. These are often known as methods. Functions defined in JavaScript are ALWAYS apart of an object. When you create a function within the root of a file, your function is added to the Window object, an object created by the DOM API in your browser. The same applies to your variables. They become properties on the Window object.
+              </p>
+            </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: The Window Object</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // Below is are a variable and a function
+                    var x = 5;
+                    function add (a, b) {
+                      return a + b;
+                    }
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-terminal ie'></i>
+                <strong class='ie'>Output</strong>
+                <br>
+                <img alt='A preview of the x and add on the window.' class='img-responsive img-thumbnail' src='./assets/images/window-object-preview.png'>
+              </div>
+            </div>
+            <div>
+              <p>
+                As you can see, .x is a property of Window and .add() is a method on Window. It is important to understand that this only applies to variables scoped globally or with var, and to functions that are globally scoped.
+              </p>
+              <small class='note'>
+              Without functions or methods we would have a ghastly amount of repetitive code in our applications. Before functions, older programming languages used subroutines and goto statements. The compiler would just reference that subroutine based on its line number or namespace. This was problematic and it is definitely better that we now use functions.
+              </small>
+            </div>
+          </div>
+          <div>
+            <h3><content=>Casting</content=></h3>
+            <div>
+              <p>
+                Because JavaScript is a loose-typed language, it is important to understand that comparisons can lead to unexpected results. We've seen this when using the loose equals == or the loose !=. These will evaluate the values of two items, but not their data type. This leads to "5" == 5, and true == 1. You may feel that as long as we use the strict equals to === we should never have an issue, but unfortunately that's not true. We can't always guarantee the data we're receiving from users, APIs, or third-party libraries. To fix this and create a normalized environment we can use casting.
+              </p>
+              <p>
+                The casting methods can be found on the Window object, but are available to us without the need to type window.method(). The 2 most common are Number() and String(). These convert their argument to either a number or string if it can be converted. String will always convert, however Number may return NaN.
+              </p>
+            </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: String and Number Casting</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // String will convert anything to a string
+                    let bool = String(true);
+                    typeof bool; // string
+
+                    let str = String(5.45);
+                    typeof str; // string
+                    console.log(str); // "5.45"
+
+                    // Number will attempt to convert to a number
+                    let num = Number("0.46");
+                    typeof num; // number
+
+                    num = Number("shaun");
+                    typeof num; // number
+                    console.log(num); // NaN (Not a Number)
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+// Step 5: Using casting, add 10 to age
+// and store it in the variable below
+// You must complete the previous question
+// first
+let agePlus10;
+
+// Step 6: Using casting, fix the condition
+// and make the following execute
+if (true === "true") {
+  console.log(agePlus10);
+}
+</textarea>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3><content=>Browser Dialogue Functions</content=></h3>
+            <div>
+              <p>
+                These next 3 functions aren't used often but are important to know about. They are the dialogue functions alert, prompt, and confirm. Their purpose is to provide a predefined browser based method for interacting with the user.
+              </p>
+              <table class='table table-striped'>
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Common Use Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>alert()</td>
+                    <td>Provides a message to the user.</td>
+                    <td>Used to notify the user in a guaranteed method.</td>
+                  </tr>
+                  <tr>
+                    <td>prompt()</td>
+                    <td>Provides a message and a way to collection information from the user.</td>
+                    <td>Used to gather imperative information from the user.</td>
+                  </tr>
+                  <tr>
+                    <td>confirm()</td>
+                    <td>Provides a boolean choice to the user.</td>
+                    <td>Used most often to confirm if the user wants to do something destructive.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: Dialogue Functions</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // alert
+                    alert('The falcon flies south for the winter!');
+
+                    // prompt()
+                    let response = prompt('How old are you?');
+
+                    // confirm()
+                    let choice = confirm('Are you sure?');
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+// Step 7: Using the correct dialogue method
+// inform the user about an important message
+
+// Step 8: Using the correct dialogue method
+// ask the user if they wish to modify future
+// messages
+
+// Step 9: Using the correct dialogue method
+// ask the user to enter the new modified
+// message they wish to have used if they've
+// chosen yes to step 2
+
+
+// NOTE: YOU WILL NEED TO EXECUTE THE TEST
+// TWICE TO ENSURE A PASS. FIRST YOU WILL
+// CLICK OK TO CONFIRM YES, THEN YOU WILL
+// CLICK CANCEL TO NOT CONFIRM
+</textarea>
+              </div>
+            </div>
+            <hr>
+            <div>
+              <small class='note'>
+              It is rare you'll use these dialogue methods, however, the confirm() method often gets used in CRUD systems where you're deleting or modifying an important piece of data.
+              </small>
+            </div>
+          </div>
+        </section>
+        <hr class='m-5'>
+        <!-- Object Functions -->
+        <section>
+          <header>
+            <h2>Common Object Functions/Methods</h2>
+          </header>
+          <div>
+            <h3><content=>Math</content=></h3>
+            <div>
+              <p>
+                We may want to run away from math, but the unfortunate reality is we will likely have to use it. JavaScript, like many languages, comes with a built-in math library. There are the standard operations, as illustrated in the table below:
+              </p>
+            </div>
+            <table class='table table-striped'>
+              <thead>
+                <tr>
+                  <th>Operator</th>
+                  <th>Description</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>+</td>
+                  <td>Addition is performed using the plus sign. This operator will add the left side to the right. Note that it is also the concatenation operator which will combine the left and right sides.</td>
+                  <td>5 + 5; // 10</td>
+                </tr>
+                <tr>
+                  <td>-</td>
+                  <td>Subtraction is performed with the minus sign. This operator will subtract the right side from the left side.</td>
+                  <td>10 - 5; // 5</td>
+                </tr>
+                <tr>
+                  <td>/</td>
+                  <td>Division is performed using the forward slash. This operator will divide the right side into the left side.</td>
+                  <td>10 / 5; // 2</td>
+                </tr>
+                <tr>
+                  <td>*</td>
+                  <td>Multiplication is performed using the asterisk. This operator will multiply the left by the right.</td>
+                  <td>10 * 5; // 50</td>
+                </tr>
+                <tr>
+                  <td>%</td>
+                  <td>Modulo is used to return the remainder from a division operation. The percent sign is used for this operation.</td>
+                  <td>8 % 3; // 2</td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <small class='note'>
+              Calculations in JavaScript are performed using floating point notation. This can lead to some bizarre results. For example, 3.3 = 1.0999999999 as opposed to 1.1.
+              </small>
+            </div>
+            <div>
+              <p>
+                In order to perform complex math such as ceil, floor, square, and round, you must use the JavaScript Math library API. It is already available to you. To use it, simply access the library with the symbol name Math, then use the . dot notation to access a method:
+              </p>
+            </div>
+            <hr>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: Math Functions</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // Square Root
+                    let sqrt = Math.sqrt(16); // 4
+
+                    // Round Up
+                    let ceil = Math.ceil(10.5); // 11
+
+                    // Round Down
+                    let floor = Math.floor(10.5); // 10
+
+                    // Round based on midpoint
+                    let round = Math.round(10.5); // 11
+                    round = Math.round(10.4); // 10
+
+                    // Random number
+                    let random = Math.random();
+                    // Returns a number between 0 and 1
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+// Use the correct math function
+// Step 10: What is the square root
+// of the following number
+let x = 64;
+
+// Step 11: Round the following number down
+let y = 10.9;
+
+// Step 12: Round the following number up
+let w = 10.3;
+
+// Step 13: Round the following number based
+// upon it's midpoint
+let u = 167.54389;
+
+// Step 14: Output a random number between
+// 0 and 1
+let t;
+</textarea>
+              </div>
+            </div>
+            <hr>
+            <div>
+              <small class='note'>
+              We will be building a function that takes full advantage of the random math function. It will allow us to output a random number in a range.
+              </small>
+            </div>
+          </div>
+          <div>
+            <h3><content=>String</content=></h3>
+            <div>
+              <p>
+                There are numerous string methods, but we tend to only use a few. We can make a string uppercase or lowercase. We can count a string. We can replace text within a string. We can also search a string for a specific pattern. In addition we can trim whitespace form the beginning or end of a string.
+              </p>
+              <p>
+                "".toUpperCase() and "".toLowerCase() change the string to their respective cases. "".trim() will remove all whitespace at the beginning and end of a string. "".replace() takes 2 arguments; the pattern and the replacement string. "".indexOf() returns the starting index number of where the passed pattern was found. "".match() takes a pattern for an argument and will return an array with all the matches, the index where it was found, and any groups you may have defined. .replace(), .indexOf(), and .match() can all take regular expression patterns as their first argument.
+              </p>
+            </div>
+            <hr>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: String Functions</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // Uppercase
+                    let up = "Shaun McKinnon".toUpperCase();
+                    // "SHAUN MCKINNON"
+
+                    // Lowercase
+                    let down = "Shaun McKinnon".toLowerCase();
+                    // "shaun mckinnon"
+
+                    // Trim
+                    let trim = "  Shaun McKinnon  ".trim();
+                    // "Shaun McKinnon"
+
+                    // Replace
+                    let rep = "Shaun McKinnon".replace("Shaun", "Dave");
+                    // "Dave McKinnon"
+
+                    // Finding first occurrence of
+                    let first = "Shaun McKinnon".indexOf("McKinnon");
+                    // 6
+
+                    // Finding matches
+                    let matches = "Shaun McKinnon".match("McKinnon");
+                    // ["McKinnon", index: 6, input: "Shaun McKinnon", groups: undefined]
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+// Step 15: Make your name uppercase
+let upcase;
+
+// Step 16: Make your name lowercase
+let downcase;
+
+// Step 17: Trim the following sentence
+let trim = "   The falcon flies south for the winter.  ";
+
+// Step 18: Return the info array by
+// matching "world" in the following sentence
+let stmnt = "The world is rotating. Other worlds are rotating too.";
+let matches;
+</textarea>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </section>
+        <hr class='m-5'>
+        <!-- Custom Functions -->
+        <section>
+          <header>
+            <h2>Custom Functions</h2>
+          </header>
+          <div>
+            <h3><content=>Writing a Custom Function</content=></h3>
+            <div>
+              <p>
+                Creating our own functions gives us the power to modularize code that we intend to repeat or scope code to a namespace. Just like variables in JavaScript, functions don't need to be data typed. In addition, we don't have to define what they're returning.
+              </p>
+              <p>
+                The syntax for a function in JavaScript is simple: the keyword function, the symbol name, a list of parameters if you want some, and a block of logic to execute. In fact, even the symbol name is optional, though this would make our function an anonymous function. Anonymous functions are quite common, especially when used as a value being stored in a variable or passed to another function as an argument.
+              </p>
+            </div>
+            <hr>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: Custom Function Syntax</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // Standard Function
+                    function myFunc (param1, param2) {
+                      // my logic block
+                      console.log("Hello World");
+                      return "bob";
+                    }
+
+                    // Anonymous Function
+                    let myFunc = function(param1, param2) {
+                      // my logic block
+                      console.log("Hello World");
+                      return "bob";
+                    }
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+// Step 19: Write a standard custom function called 'greeting'.
+// It should have one parameter called name.
+// It should console log `Hello, ${name}` using
+// string interpolation.
+
+// Step 20: Write an anonymous function and store
+// it in the provided variable. This function should
+// have one parameter called 'message' and it should
+// console log `The Message: ${message}` using string
+// interpolation.
+let notify;
+</textarea>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <div>
+            <h3><content=>Calling a Custom Function</content=></h3>
+            <div>
+              <p>
+                Calling custom functions is the same as calling any function. An important concept to learn in JavaScript is that functions are just function definitions until you use the execution operator (). The double parenthesis execute the function definition. Otherwise we are able to pass the function definition around as a value.
+              </p>
+            </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: Calling Functions</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    // Standard Function
+                    function myFunc (param1, param2) {
+                      // my logic block
+                      console.log("Hello World");
+                      return "bob";
+                    }
+
+                    myFunc(arg1, arg2);
+
+                    // Anonymous Function
+                    let myFunc = function(param1, param2) {
+                      // my logic block
+                      console.log("Hello World");
+                      return "bob";
+                    }
+
+                    myFunc(arg1, arg2);
+                  </code>
+                </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+function greeting (name) {
+  console.log(`Hello, ${name}`);
+}
+
+// Step 22: Call our previously defined 'greeting'
+// function passing your name as the argument
+let notify = function (message) {
+  console.log(`The Message: ${message}`);
+}
+
+// Step 23: Call our previously defined message
+// function passing the following as an argument:
+// "The falcon flies south for the winter."
+</textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr class='m-5'>
+        <!-- Parameters & Arguments -->
+        <section>
+          <header>
+            <h2>Parameters & Arguments</h2>
+          </header>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <h3><content=>Parameters</content=></h3>
+              <div>
+                <p>
+                  Parameters are simply placeholders for expected values. They allow you to imply a value in various spots in your logic without needing the value before hand. Parameters are not data typed which means the arguments will need to be sanitized
+                </p>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Parameters</strong>
+                  <pre class='line-numbers'>
+                    <code class='language-javascript'>
+                      // Parameters
+                      function myFunc (str, num, obj, arr, func) {
+                        console.log(str, num, obj, arr, func);
+                      }
+                      // Parameters are just symbol names (labels);
+                      // they are placeholders for data values. They
+                      // are not data typed!
+                    </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+            <div class='col-sm-6'>
+              <h3><content=>Arguments</content=></h3>
+              <div>
+                <p>
+                  Arguments are the values that will replace the parameters within the function. Because parameters are not data typed, it is important to perform sanitization and validation on the arguments.
+                </p>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <i class='fas fa-code ie'></i>
+                  <strong class='ie'>Example: Arguments</strong>
+                  <pre class='line-numbers'>
+                    <code class='language-javascript'>
+                      // Arguments
+                      myFunc("Bob", 40, {a: 2, b: 3}, [1, 2, 3], myfunc);
+                      // Arguments can be any data type including
+                      // a function definition!
+                    </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <i class='fas fa-code practice'></i>
+              <strong class='practice'>Practice Title</strong>
+              <br>
+<textarea class='practice'>
+// Step 24: Create a function that has
+// 2 parameters: 1 for an array, and
+// 2 for a string.
+// Have the logic add the string to the
+// end of the array and return the new
+// array.
+
+// Step 25: Call your function, storing
+// the value in the provided variable.
+let myNewArr;
+</textarea>
+            </div>
+          </div>
+          <h4></h4>
+          <div>
+            <h3><content=>Callbacks</content=></h3>
+            <div>
+              <p>
+                Last week we discussed how arrays have many methods available to them, however most took a callback as an argument. A callback, simply put, is a function definition that has been passed as an argument. Once you have the definition, you can choose to call it inside your original function as you see fit. Because JavaScript is asynchronous, callbacks are crucial to queuing operations. For example, when an API has returned a value, we can call the callback to add the values to the DOM.
+              </p>
+              <p>
+                Due to the complexity of callbacks, we'll use a simple built-in method and provide it a callback so we can get a general idea of how it works.
+              </p>
+              <p>
+                Below, we're using the array method map. Map is an interative method, meaning it will loop over all the elements in the array. Essentially, .map iterates over each element and passes it to a provided callback function. That function can mutate the value, output it, whatever it wants. If it returns a value, that value will take the spot of the passed element:
+              </p>
+            </div>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <i class='fas fa-code ie'></i>
+                <strong class='ie'>Example: Callbacks</strong>
+                <pre class='line-numbers'>
+                  <code class='language-javascript'>
+                    let myArr = [1, 2, 3, 4, 5];
+
+                    // Map with an anonymous function
+                    let newArr = myArr.map(function (ele) {
+                      return ele + 1;
+                    });
+                    // newArr = [2, 3, 4, 5, 6]
+
+                    // Map with a named function
+                    function output (ele) {
+                      return ele + 1;
+                    }
+
+                    let newArr2 = myArr.map(output);
+                     // newArr2 = [2, 3, 4, 5, 6]
+                   </code>
+                 </pre>
+              </div>
+              <div class='col-sm-6'>
+                <i class='fas fa-code practice'></i>
+                <strong class='practice'>Practice Title</strong>
+                <br>
+<textarea class='practice'>
+let nums = [256, 56, 72, 94, 83];
+
+// Step 26: Using [].reduce(),
+// sum the given array 'nums'
+let sum;
+</textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Your Lab Code</h2>
+          <p>Please submit the following code as your lab.</p>
+          <div>
+            <button class='btn btn-large btn-success' id='printCode'>Get Code!</button>
+          </div>
+          <div>
+            <pre class='line-numbers'>
+              <code class='language-javascript' id='codeoutput'>
+              </code>
+            </pre>
+          </div>
+        </section>
+      </article>
+    </div>
+    <!-- THIRD PARTY JAVASCRIPT -->
+    <!-- Bootstrap JS -->
+    <script crossorigin='anonymous' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script crossorigin='anonymous' integrity='sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP' src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js'></script>
+    <!-- Prism -->
+    <script src='./assets/js/prism.js' type='text/javascript'></script>
+    <!-- Shaun JS -->
+    <script src='./assets/js/main.js' type='text/javascript'></script>
+    <!-- END OF THIRD PARTY JAVASCRIPT -->
+    <!-- --------------------------- -->
+
+    <!-- --------------------------- -->
+    <!-- Evaluation Code -->
+    <!-- This code is for evaluating your scripts -->
+    <script src='./assets/js/evaluate.js' type='text/javascript'></script>
+    <script src='./assets/js/scmEvaluate.js'></script>
+    <script src='./assets/js/scmCodeEval.js'></script>
+    <!-- End of Evaluation Code -->
+  </body>
+</html>
