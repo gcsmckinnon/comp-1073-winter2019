@@ -218,7 +218,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let cmObj = CodeMirror.fromTextArea(cm, {
       lineNumbers: true,
       mode: "javascript",
-      theme: "duotone-light"
+      theme: "duotone-light",
+      autoCloseBrackets: true,
+      lineWrapping: true
     });
 
     CODEMIRRORS[cm.id] = cmObj;
