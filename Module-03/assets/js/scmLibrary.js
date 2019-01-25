@@ -167,7 +167,7 @@ SCM.prototype.parsePattern = function (pattern, flags = false) {
     so: '\;?', // optional semi-colon
     anyR: '.+', // requires at least one text
     anyW: '.*', // any text
-    sym: '([a-zA-Z\\_\\$][a-zA-Z\\_0-9]+)', // symbol name
+    sym: '([a-zA-Z\\_\\$][a-zA-Z\\_0-9]*)', // symbol name
     plag: '\\({os}(({qc}?{anyR}{qc}?)\,?)+{os}\\)', // param or args list
     bvard: '{bs}{rs}{sym}{os}(\=|\;?){os}?', // block variable declaration
     cond: '((if{os}{plag})|(switch{os}{plag}))' // condition checks
