@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <!-- Shaun CSS -->
+    <link href='./assets/css/styles.css' rel='stylesheet' type='text/css'>
+    <!-- Your CSS -->
+    <link href='./assets/css/module-05.css' rel='stylesheet' type='text/css'>
+    <script src='./assets/js/codemirror.js'></script>
+    <script src='./assets/js/mode/javascript/javascript.js'></script>
+    <script src='./assets/js/addon/search/searchcursor.js'></script>
+    <script src='./assets/js/addon/edit/closebrackets.js'></script>
+    <script src='./assets/js/eval.js'></script>
+    <title>Object Inheritance</title>
+  </head>
+  <body>
+    <div class='container'>
+      <header class='mt-5'>
+        <h1>Object Inheritance</h1>
+      </header>
+      <hr>
+      <hr>
+      <article class='lesson'>
+        <section>
+          <header>
+            <h2>Passing By: Value VS. Reference</h2>
+          </header>
+          <div>
+            <p class='content'>
+              In programming, there 2 fundamental concepts of how data is passed around a program:
+              <em>
+              By Value
+              </em>
+              and
+              <em>
+              By Reference.
+              </em>
+              It is important to understand this concept as it helps you understand how prototypal inheritance works.
+            </p>
+          </div>
+          <h3><content=>Pass By Value</content=></h3>
+          <div>
+            <p class='content'>
+              <em>By value</em>
+              means the value of what you're assigning is
+              <em>copied</em>
+              into a new address location. Everytime you assign x to another variable it will continually copy the value in the memory location into the new allocated memory location. Changing the original
+              <em>x</em>
+              will have no affect on any of the other values.
+            </p>
+          </div>
+          <div>
+            <i class='fas fa-code ie'></i>
+            <strong class='ie'>Example: Pass by Value</strong>
+            <img alt='Shows a simplified &quot;pass by value&quot; operation.' class='img-responsive img-thumbnail' src='assets/images/by-value.svg'>
+            <p class='note'>
+              In the image above you can see we've set
+              <em>x</em>
+              and made the value equal to
+              <em>5.</em>
+              We've set
+              <em>y</em>
+              to be the value of
+              <em>x.</em>
+              As you will notice, the value is moved into a
+              <em>new memory location</em>
+              disconnecting it from
+              <em>x</em>
+              entirely. As you can see, logging
+              <em>x</em>
+              and
+              <em>y</em>
+              shows the values are completely different. This is because in JavaScript, values are
+              <em>passed by value (copied)</em>
+              and not by reference.
+            </p>
+          </div>
+          <div>
+            <hr>
+            <div>
+              <i class='fas fa-code practice'></i>
+              <strong class='practice'>Practice 01: By Value - Enter your answers into the spaces provided and run the code</strong>
+              <br>
+<textarea class='practice'>// The following is an example of Pass By Value
+let x = 5;
+let y = x;
+
+x = 6;
+
+// Step 1: Answer the following questions
+&nbsp;
+&nbsp;</textarea>
+              <div class='row mt-3'>
+                <div class='col-sm-6'>
+                  <lable>
+                    <em>x</em>
+                    is equal to:
+                  </lable>
+                  <input class='student-response' length='1' min='1' name='m5p1i1' placeholder='enter the value of x' step='1' type='number'>
+                </div>
+                <div class='col-sm-6'>
+                  <lable>
+                    <em>y</em>
+                    is equal to:
+                  </lable>
+                  <input class='student-response' length='1' min='1' name='m5p1i2' placeholder='enter the value of y' step='1' type='number'>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <h3><content=>Pass By Reference</content=></h3>
+          <div>
+            <p class='content'>
+              As we keep saying
+              <em>"Most things in JavaScript are objects".</em>
+              Objects by their very nature are passed around by reference. This means that instead of creating a complete duplicate of the object only the
+              <em>memory address of the object</em>
+              is passed. So, when you attempt to access any properties or methods, you're always accessing the original. The largest benefit to that is that any modifications to the original will obviously be available to any of the references.
+            </p>
+          </div>
+          <div>
+            <i class='fas fa-code ie'></i>
+            <strong class='ie'>Example: Pass by Reference</strong>
+            <img alt='Shows a simplified &quot;pass by reference&quot; operation.' class='img-responsive img-thumbnail' src='assets/images/by-reference.svg'>
+            <p class='note'>
+              In the image above we are creating a new variable,
+              <em>x</em>
+              and assigning it the value of an
+              <em>object</em>
+              with the property
+              <em>a.</em>
+              a has the value of 5. Next we create a new variable,
+              <em>y</em>
+              and we assign
+              <em>x</em>
+              to it. When we change the value of
+              <em>x.a</em>
+              it changes the value stored in the address location. Every variable currently referencing x has access to the property
+              <em>a</em>
+              and therefore the updated value.
+            </p>
+          </div>
+          <div>
+            <hr>
+            <div>
+              <i class='fas fa-code practice'></i>
+              <strong class='practice'>Practice 02: By Reference - Run the following code</strong>
+              <br>
+<textarea class='practice'>// The following is an example of Pass By Value
+let x = {a: 5}
+let y = x;
+
+x.a = 6;
+
+// Step 1: Answer the following questions
+&nbsp;
+&nbsp;</textarea>
+              <div class='row mt-3'>
+                <div class='col-sm-6'>
+                  <lable>
+                    <em>x.a</em>
+                    is equal to:
+                  </lable>
+                  <input class='student-response' length='1' min='1' name='m5p2i1' placeholder='enter the value of x' step='1' type='number'>
+                </div>
+                <div class='col-sm-6'>
+                  <lable>
+                    <em>y.a</em>
+                    is equal to:
+                  </lable>
+                  <input class='student-response' length='1' min='1' name='m5p2i2' placeholder='enter the value of y' step='1' type='number'>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <h3><content=>Why is this Important?</content=></h3>
+          <div>
+            <p class='content'>
+              Understanding
+              <em>pass by value</em>
+              and
+              <em>pass by reference</em>
+              will help you to better understand how inheritance works in JavaScript. Before we discussed how objects are immediately instantiated. Because of this, inheritance is a bit unique in JavaScript. There are 2 common ways inheritance is performed in JavaScript. We'll talk about the simplest method first, which is
+              <em>inheritance</em>
+              using
+              <em>object literals.</em>
+            </p>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <header>
+            <h2>Inheritance Using Object Literals</h2>
+          </header>
+          <h3><content=>Recap: Creating an Object Literal</content=></h3>
+          <div>
+            <p>
+              <em>Object literals</em>
+              are just objects created using the following syntax:
+            </p>
+          </div>
+          <div>
+            <i class='fas fa-code ie'></i>
+            <strong class='ie'>Example: Creating a new object</strong>
+            <pre class='line-numbers' data-start='1'><code class='language-javascript'>const person = {}</code></pre>
+          </div>
+          <div>
+            <p class='content'>
+              Last week we demonstrated
+              <em>Object Constructors</em>
+              and how we can use them to create a basic template for object creation, similar to how a class is used as a blueprint for object creation in other languages. However,
+              <em>object literals</em>
+              can be used to create a blueprint as well with a bit of out-of-the-box thinking.
+            </p>
+            <p class='content'>
+              In order for our object template to be abstract enough, we need to consider all the pieces we will need. We should have an
+              <em>initializer method</em>
+              that will allow us to assign our object some values, similar to a constructor. The difference is we will have to call the method after the object is constructed. We will need some generic properties, but those should be defined and created using setter/getter methods to maintain normalization. Basically our object template should be a generic version of our final object:
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 03: Creating an Object Template Using Object Literals</strong>
+            <br>
+<textarea class='practice'>// Step 1: Create an object literal called Food
+// Step 2: Create an initializer method (either in the object syntax or as an external property)
+// a) The initializer should have one parameter called 'type'
+// b) The initializer will assign a passed argument to a 'type' property on the object, ie: (this.type)
+
+// Step 3: Create a method called eat that returns `You ate the ${this.type}.`
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              The above practice creates a very generic object called
+              <em>Food.</em>
+              Remembering what we had said about objects:
+              <em>"Objects should encapsulate an idea. They can be correlated with nouns (person, place, or thing)."</em>
+              Food is a thing and is a very generic category encompassing a huge collection of possibilities.
+            </p>
+            <p class='content'>
+              Our property
+              <em>type</em>
+              will allow us to assign a type to our objects. There are quite a few possibilities for types. We could start more generic:
+              <em>meat, vegetable, fruit, grain;</em>
+              or type our objects by categories like
+              <em>dessert, appetizer, or main.</em>
+              Our options are endless, and with inheritance, we can start general and become more specific with each child object.
+            </p>
+          </div>
+          <h3><content=>Inheritance Using Object.create()</content=></h3>
+          <div>
+            <p class='content'>
+              <em>Object inheritance</em>
+              can be likened to that of parent/child inheritance. We as children of our parents inherit traits from them. Our hair colour, eye colour, build, facial features, and even mannerisms are direct connections to our parents. However, we become more specific and unique versions by modifying these properties or acquiring new ones. In addition, we don't always tend to inherit from one parent; we inherit from both. In fact we inherit way up the ancestor line with bits of DNA passing down over centuries.
+            </p>
+            <p class='content'>
+              The object
+              <em>Object()</em>
+              has some handy properties for working with objects. We saw one last week:
+            </p>
+          </div>
+          <div>
+            <i class='fas fa-code ie'></i>
+            <strong class='ie'>Example: Creating a new object</strong>
+            <pre class='line-numbers' data-start='1'><code class='language-javascript'>Object.getOwnPropertyNames(Math);</code></pre>
+          </div>
+          <div>
+            <small class='note'>
+            <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames'>MDN: Object.getOwnPropertyNames()</a>
+            </small>
+            <p class='content'>
+              <em>Object.getOwnPropertyNames()</em>
+              retrieves a shallow list of all the properties defined on an object and returns it as an array.
+            </p>
+            <small class='note'>
+            <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create'>MDN: Object.create()</a>
+            </small>
+            <p class='content'>
+              <em>Object.create()</em>
+              creates a new object, using an existing object as a template (prototype). The created object will create a reference to original object meaning any new methods or properties created on that object will immediately be passed down to the new object.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 04: Demonstrating Object.create()</strong>
+            <br>
+ <textarea class='practice'>// Our parent object
+let obj = {a: 1, b: 5, c: 3};
+
+// Our new inherited object
+let objInherit = Object.create(obj);
+
+// Step 1: Create a new property on the new objInherit object (externally)
+
+// Step 2: Create a new property on the original obj object (externally)
+
+// Step 3: Answer the following question
+&nbsp;
+&nbsp;</textarea>
+            <div class='row mt-3'>
+              <div class='col-sm-6'>
+                <lable>
+                  <em>objInherit</em>
+                  has the newly created obj property
+                </lable>
+                <div class='form-group'>
+                  <lable>
+                    <em>True</em>
+                  </lable>
+                  <input class='student-response' name='m5p4i1' type='radio' value='true'>
+                  <lable class='ml-3'>
+                    <em>False</em>
+                  </lable>
+                  <input class='student-response' name='m5p4i1' type='radio' value='false'>
+                </div>
+              </div>
+              <div class='col-sm-6'>
+                <lable>
+                  <em>obj</em>
+                  has the newly created objInherit property
+                </lable>
+                <div class='form-group'>
+                  <lable>
+                    <em>True</em>
+                  </lable>
+                  <input class='student-response' name='m5p4i2' type='radio' value='true'>
+                  <lable class='ml-3'>
+                    <em>False</em>
+                  </lable>
+                  <input class='student-response' name='m5p4i2' type='radio' value='false'>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              In the code above we can see that while
+              <em>objInherit</em>
+              contains the new property defined on
+              <em>obj,</em>
+              obj does
+              <em>NOT</em>
+              contain the new property that was defined on objInherit. This is because the property defined on obj will be carried through to all of it's children who inherited from it, but each child is unique onto themselves, so any new properties defined on them will be unique. If a new object was to inherit from them, the chain would continue to cascade:
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 05: Demonstrating Object.create()</strong>
+            <br>
+<textarea class='practice'>// Our parent object
+let obj = {a: 1, b: 5, c: 3};
+
+// Our inherited object
+let objInherit = Object.create(obj);
+
+// An new object inheriting from objInherit
+let onceAgain = Object.create(objInherit);
+
+onceAgain.d = 256;
+objInherit.e = 305;
+obj.f = 42;
+&nbsp;
+&nbsp;</textarea>
+            <div class='row mt-3'>
+              <div class='col-sm-4'>
+                <lable>
+                  <em>onceAgain.f</em>
+                  is equal to:
+                </lable>
+                <input class='student-response' name='m5p6i1' placeholder='onceAgain.f'>
+              </div>
+              <div class='col-sm-4'>
+                <lable>
+                  <em>objInherit.d</em>
+                  is equal to:
+                </lable>
+                <input class='student-response' name='m5p6i2' placeholder='objInherit.d'>
+              </div>
+              <div class='col-sm-4'>
+                <lable>
+                  <em>obj.e</em>
+                  is equal to:
+                </lable>
+                <input class='student-response' name='m5p6i3' placeholder='obj.e'>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              As you can see,
+              <em>onceAgain.f</em>
+              contains the value of
+              <em>obj.f.</em>
+              This is because when a new object is created from another object it not only inherits all the properties from the parent, but it also inherits any properties from the grandparent (the parent's parent).
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 06: Inheriting Food with Object.create()</strong>
+            <br>
+<textarea class='practice'>// NOTE: This comes from practice 3. You must have completed and clicked 'execute' on practice 3 for the following variable to work.
+let Food = m5p3.env.Food;
+
+// Step 1: Create a new object called 'Vegetable' that inherits from 'Food' using Object.create()
+
+// Step 2: Initialize Vegetable by calling .init() and passing 'vegetable' as an argument to it.
+
+// Step 3: Create a new method on 'Vegetable' called 'setColour' that takes one argument, 'colour' and sets a new property called 'colour' with the passed argument
+
+// Step 4: Create a new object called 'Celery' that inherits from 'Vegetable'
+
+// Step 5: Call 'init' on 'Celery' and set its type to 'celery'
+
+// Step6: Call 'setColour' on 'Celery' and set the colour to 'green'
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              The above is an example of the
+              <em>inheritance chain:</em>
+              <em>Celery</em>
+              <- inherits --
+              <em>Vegetable</em>
+              <-- inherits --
+              <em>Food.</em>
+              Because of this,
+              <em>Celery</em>
+              has access to
+              <em>init()</em>
+              and
+              <em>setColour()</em>
+              while
+              <em>Food</em>
+              has access to only
+              <em>init().</em>
+            </p>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <header>
+            <h2>Inheritance Using Object Constructors</h2>
+          </header>
+          <h3><content=>Recap: Creating an Object Constructor</content=></h3>
+          <div>
+            <p class='content'>
+              <em>Object Constructors</em>
+              are simply just a standard function. We can use these to create a
+              <em>blueprint (just like classes do)</em>
+              for what we want an object to look like -- any necessary
+              <em>properties</em>
+              it may need to contain. The one thing we haven't really discussed is what happens when we create an object using the object constructor method.
+            </p>
+            <p class='content'>
+              The
+              <em>new</em>
+              keyword is what makes creating objects with object constructors doable.
+              <em>new</em>
+              does the following:
+            </p>
+            <ol>
+              <li>It creates a new empty object</li>
+              <li>
+                It sets a new property on the object called
+                <em>prototype</em>
+              </li>
+              <li>
+                It binds all the properties set with the
+                <em>this</em>
+                keyword to the object
+              </li>
+              <li>It returns the newly created object</li>
+            </ol>
+            <p class='content'>
+              So that's it, in a nutshell. Simply put, it translates our function into an object.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 07: Creating a new object using an object constructor</strong>
+            <br>
+<textarea class='practice'>// Step 1: Create a new Person object constructor with the following properties and method
+// a) firstName (property)
+// b) lastName (property)
+// c) bio (method), returns `${this.firstName} ${this.lastName} is a mild-mannered individual by day.`
+
+// Step 2: Create a new Person object using your object constructor
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              Our person is pretty bland. Just some peep with a first name, last name, and some basic bio. It'd be nice if we could give our peep some flare. For example, perhaps they're employed. Or perhaps they're a student. Or, perhaps they're a
+              <em>SUPERHERO!</em>
+            </p>
+            <p class='content'>
+              Either way, they need to start out as a simple person. From there we can broaden who they through
+              <em>Prototypal Inheritance!</em>
+            </p>
+          </div>
+          <h3><content=>Observing __proto__</content=></h3>
+          <div>
+            <p class='content'>
+              Every object has a
+              <em>__proto__</em>
+              property. Seeing as how
+              <em>"Most things in JavaScript are objects!",</em>
+              you can assume
+              <em>most things have a property called __proto__.</em>
+            </p>
+            <p class='content'>
+              <strong>
+              <em>BUT WHAT IS __proto__???</em>
+              </strong>
+              __proto__ is a property that stores the reference relationship to an objects constructor and properties. Let's look at some common data types we work with, further proving most things are objects:
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 08: __proto__ - run the code...</strong>
+            <br>
+<textarea class='practice'>// The following are new objects. Notice the __proto__ property on all of them
+console.dir(new String());
+console.dir(new Number());
+console.dir(new Array());
+console.dir(new Object());
+console.dir(new Function());
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              If you utilize the
+              <em>
+              <i class='fa fa-caret-down'></i>
+              </em>
+              open the
+              <em>String</em>
+              object and look for the
+              <em>__proto__</em>
+              property. If you click on its
+              <em>
+              <i class='fa fa-caret-down'></i>
+              </em>
+              you will see the list of available properties that the
+              <em>String object</em>
+              has inherited from the
+              <em>Object object.</em>
+            </p>
+            <p class='content'>
+              <em>EVERY OBJECT INHERITS FROM THE BASE OBJECT OBJECT.</em>
+              This may seem odd, but there has to be a start to this object language, and that start is the
+              <em>object base.</em>
+              The object base provides the other objects with a default set of properties such as a constructor, getter/setter for the __proto__ property, and a toString() method. Every object created inherits these from the object base.
+            </p>
+          </div>
+          <h3><content=>Prototype</content=></h3>
+          <div>
+            <p class='content'>
+              Sounds like a robot horror movie where the robot becomes sentient and murders all the harmless scientists! But it isn't.
+              <em>Prototype</em>
+              is a property automatically given to
+              <em>functions.</em>
+              When you define a new object constructor you can also define the properties and methods any children objects can inherit by adding them to the prototype bucket. Any properties defined inside the constructor are immediately added. External ones would have to be added by first accessing the prototype property then attaching the new property to it. In short, then, a
+              <em>prototype is a property on a function that points to an object.</em>
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 09: Adding a new inheritable property</strong>
+            <br>
+<textarea class='practice'>// Constructor
+function Person (name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Non-inheritable property
+Person.privProp = 42;
+
+// Inheritable property
+Person.prototype.meaningOfLife = Person.privProp;
+
+// Step 1: Instantiate a new object using the Person constructor
+let shaun = new Person('Shaun', 40);
+
+console.log(shaun.name, shaun.age, shaun.meaningOfLife, shaun.privProp);
+console.log(Person.privProp);
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              Notice that
+              <em>shaun.privProp</em>
+              returns
+              <em>undefined.</em>
+              That's because unless the property is apart of the original object definition or attached to the prototype property it is private to the original object. You can use this feature to define private properties on the Person object that shouldn't be inherited by object created using Person or by new objects inheriting from Person.
+            </p>
+          </div>
+          <h3><content=>Inheritance Using Object Prototypes</content=></h3>
+          <div>
+            <p class='content'>
+              We can have one
+              <em>object constructor</em>
+              inherit from another object constructor. As discussed, an individual
+              <em>Person</em>
+              is likely to have more traits then afforded by the Person object. If we want to give it more traits using inheritance, we will need another
+              <em>object constructor.</em>
+              Why don't we create the
+              <em>Superhero</em>
+              object constructor.
+            </p>
+            <p class='content'>
+              In order to inherit from our Person object, we must
+              <span class='emphasis'>instantiate</span>
+              it using the
+              <span class='emphasis'>.call() method.</span>
+              This is essentially like calling
+              <span class='emphasis'>super()</span>
+              in other languages as it will instantiate the Person object and assign its properties to SuperHero where they are not already defined.
+            </p>
+            <p class='note'>
+              The call method basically allows you to call a function and then pass in a specific value for the
+              <em>this keyword</em>
+              binding the properties of that function to the
+              <em>this owner.</em>
+            </p>
+          </div>
+          <div>
+            <i class='fas fa-code ie'></i>
+            <strong class='ie'>Example: Creating a new object</strong>
+            <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Employee inheriting from Person
+function Employee (name, age) {
+  // This refers to the Employee owner
+  Person.call(this, name, age);
+}</code></pre>
+          </div>
+          <div>
+            <p class='content'>
+              In order to use all methods assigned to the Person prototype property, we must set a reference to it on our SuperHero constructor. Currently we have access to only the properties defined in the original Person structure, so we don't have access to any methods defined on the Person.prototype.
+            </p>
+          </div>
+          <div>
+            <i class='fas fa-code ie'></i>
+            <strong class='ie'>Example: Creating an inherited object</strong>
+            <pre class='line-numbers' data-start='1'><code class='language-javascript'>// Employee inheriting from Person
+function Employee (name, age) {
+  // When you attempt a method on Person that doesn't exist on Employee it will move up the chain. That's why we're passing 'this' to Person.call(). It will attempt to call the method on Employee first, then move to calling it on Person as a fallback
+  Person.call(this, name, age);
+}
+
+// This will assign the Person.prototype references (properties and other inheritance) to the Employee prototype property. This will make it so any prototypal properties we've assigned to Person will now be available to Employee
+Employee.prototype = Object.create(Person.prototype);</code></pre>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 10: Creating a new object using Object.create()</strong>
+            <br>
+<textarea class='practice'>// NOTE: This comes from practice 7. You must have completed and clicked 'execute' on practice 7 for the following variable to work.
+let Person = m5p7.env.Person;
+
+// Step 1: Create a new Superhero object constructor with the following properties and method
+// a) Connect the Superhero object to the Person object by calling the Person object
+// b) Add a codename (property)
+// c) Add a power (property)
+// d) Add an origin (method) that returns an origin story referencing the superheroes codename (this.codename)
+
+// Step 2: Connect the prototypes
+
+// Step 3: Create a new Superhero object using your object constructor
+
+// Step 4: Console log the superhero's origin story
+&nbsp;
+&nbsp;</textarea>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <header>
+            <h2>Composition Over inheritance</h2>
+          </header>
+          <small class='note'>
+          <a href='https://www.youtube.com/watch?v=wfMtDGfHWpA&amp;t='>Composition Over Inheritance - Fun Fun Function</a>
+          </small>
+          <div>
+            <p class='content'>
+              <em>Multiple inheritance</em>
+              isn't supported in every language, JavaScript being one of them. The idea of multiple inheritance is that an object can inherit properties from multiple objects at the same ancestry level. Unfortunately that is not the case as JavaScript requires chain inheritance where one object must be a child of another, but will pass the parent's properties as long as they haven't been overwritten. That is why many JavaScript programmers prefer to program with
+              <em>composition over inheritance.</em>
+              Composition, simply put, is creating an object that has the exact traits it requires. For example, a person can
+              <em>move</em>
+              and make noise by
+              <em>talking,</em>
+              however a dog can also
+              <em>move</em>
+              and make noise by
+              <em>barking.</em>
+              The implementation of noise is drastically different as the human has the ability to make millions of noises that form words and sounds where as the dog only has a few. So well both
+              <em>human</em>
+              and
+              <em>dog</em>
+              could inherit from a parent class like
+              <em>mammal</em>
+              the implementation would require both creatures to implement a different
+              <em>noise method.</em>
+              This is where
+              <em>composition</em>
+              makes more sense over inheritance.
+            </p>
+            <p class='content'>
+              With
+              <em>composition</em>
+              we can create a trait called
+              <em>talk</em>
+              and a trait called
+              <em>bark.</em>
+              We can also create a trait called
+              <em>walk.</em>
+              The human will have the traits
+              <em>talk</em>
+              and
+              <em>walk;</em>
+              the dog will have the traits
+              <em>bark</em>
+              and
+              <em>walk.</em>
+              Our code would still be nicely encapsulated and modular, but we would be able to efficiently give each creature its specified properties.
+            </p>
+            <p class='content'>
+              To sum up the difference:
+              <em>Inheritance is when you design your types around what they are.</em>
+              <em>Composition is when you design your types around what they do.</em>
+            </p>
+          </div>
+        </section>
+        <!-- Below is the lab submission section -->
+        <hr>
+        <hr>
+        <section class='mt-5'>
+          <h2>Your Lab Code</h2>
+          <p>Please submit the following code as your lab.</p>
+          <div>
+            <button class='btn btn-large btn-success' id='printCode'>Get Code!</button>
+          </div>
+          <div>
+            <pre class='line-numbers'><code class='language-javascript' id='codeoutput'></code></pre>
+          </div>
+        </section>
+      </article>
+    </div>
+    <!-- THIRD PARTY JAVASCRIPT -->
+    <!-- Bootstrap JS -->
+    <script crossorigin='anonymous' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script crossorigin='anonymous' integrity='sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP' src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js'></script>
+    <!-- Prism -->
+    <script src='./assets/js/prism.js' type='text/javascript'></script>
+    <!-- END OF THIRD PARTY JAVASCRIPT -->
+    <!-- Evaluation Code -->
+    <!-- This code is for evaluating your scripts -->
+    <script src='./assets/js/evaluate.js' type='text/javascript'></script>
+    <script src='./assets/js/scmLibrary.js'></script>
+    <!-- End of Evaluation Code -->
+  </body>
+</html>
