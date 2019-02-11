@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <!-- Shaun CSS -->
+    <link href='./assets/css/styles.css' rel='stylesheet' type='text/css'>
+    <!-- Your CSS -->
+    <link href='./assets/css/module-06.css' rel='stylesheet' type='text/css'>
+    <script src='./assets/js/codemirror.js'></script>
+    <script src='./assets/js/mode/javascript/javascript.js'></script>
+    <script src='./assets/js/addon/search/searchcursor.js'></script>
+    <script src='./assets/js/addon/edit/closebrackets.js'></script>
+    <script src='./assets/js/eval.js'></script>
+    <title>Introducing the DOM</title>
+  </head>
+  <body>
+    <div class='container'>
+      <header class='mt-5'>
+        <h1>Introducing the DOM</h1>
+      </header>
+      <hr>
+      <hr>
+      <article class='lesson'>
+        <section>
+          <header>
+            <h2>
+              What is the
+              <span class="" data-toggle="tooltip" title="Document Object Model"><content=>DOM?</content=></span>
+            </h2>
+          </header>
+          <h3><content=>Introducing....</content=></h3>
+          <div>
+            <p class='content'>
+              So far we have learned a lot about objects: properties; methods; inheritance; passing by reference. This foundational knowledge will help you better understand the magic that is
+              <em>the DOM.</em>
+            </p>
+            <p class='content'>
+              The
+              <em>DOM</em>
+              is
+              <em>simply an object.</em>
+              It is no different than the objects you create in OOP. The DOM
+              <em>represents our entire HTML page.</em>
+              It provides, like objects do, properties and methods that allow us to create, read, update, and delete various pieces of our HTML page.
+            </p>
+            <p class='content'>
+              <em>The DOM is not exclusive to JavaScript,</em>
+              but often the two are used in tandem. The browser's
+              <em>JavaScript API</em>
+              provides a way for you to work with the DOM. On page load, the JavaScript API creates a new version of your API page. It first creates the document object then proceeds to populate it with children nodes that represent the other HTML elements you have on the page. Each of these is a different object type, but all inherit from the main object types, Element, Node, and EventTarget.
+            </p>
+            <p class='content'>
+              <em>Understanding the DOM structure allows you to manipulate it</em>
+              with a programming language like JavaScript more effectively. The DOM, however, is not explicitly a JavaScript thing. It was made to be independent of any programming languages.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 01: A DOM manipulation example...</strong>
+            <br>
+<textarea class='practice'>// JUST CLICK EXECUTE
+const h1 = document.querySelector('h1');
+h1.style.color = 'pink';
+h1.textContent = 'Hackety Hack!!!';</textarea>
+<small class='note'>
+<em>.style</em>
+is a property of all HTMLElement type objects.
+<em>.textContent</em>
+is a property of any non-form based HTMLElement objects.
+</small>
+          </div>
+          <hr>
+          <h3><content=>DOM Types</content=></h3>
+          <div>
+            <p class='content'>
+              <em>Below</em>
+              is a table illustrating the many DOM related objects that you will encounter while working with the DOM:
+            </p>
+            <small class='note'>
+            <a href='http://javascript.info/basic-dom-node-properties'>Node properties: type, tag and contents</a>
+            </small>
+            <div class='row'>
+              <div class='col-lg-8'>
+                <table class='table table-striped table-responsive'>
+                  <thead>
+                    <tr>
+                      <th>DOM Interface</th>
+                      <th>Description</th>
+                      <th>Inherits</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>HTMLElement</th>
+                      <td>
+                        The HTMLElement interface represents any HTML element, ie:
+                        <em>body, div, p, img, form, input, textarea, etc...</em>
+                      </td>
+                      <td>Element</td>
+                    </tr>
+                    <tr>
+                      <th>Element</th>
+                      <td>
+                        A base class for DOM elements. It provides element-level navigation like nextElementSibling, children and searching methods like getElementsByTagName, querySelector. In the browser there may be not only HTML, but also XML and SVG documents. The Element class serves as a base for more specific classes: SVGElement, XMLElement and HTMLElement.
+                      </td>
+                      <td>Node</td>
+                    </tr>
+                    <tr>
+                      <th>Node</th>
+                      <td>
+                        An “abstract” class, serving as a base for DOM nodes. It provides the core tree functionality: parentNode, nextSibling, childNodes and so on (they are getters). Objects of Node class are never created. But there are concrete node classes that inherit from it, namely: Text for text nodes, Element for element nodes and more exotic ones like Comment for comment nodes.
+                      </td>
+                      <td>EventTarget</td>
+                    </tr>
+                    <tr>
+                      <th>EventTarget</th>
+                      <td>
+                        The root “abstract” class. Objects of that class are never created. It serves as a base, so that all DOM nodes support so-called “events”, we’ll study them later.
+                      </td>
+                      <td>Object</td>
+                    </tr>
+                    <tr>
+                      <th>NodeList</th>
+                      <td>
+                        A collection of Nodes.
+                      </td>
+                      <td>Object</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class='col-lg-4'>
+                <img alt='DOM node classes - JavaScript.Info' class='img-responsive img-thumbnail' src='http://javascript.info/article/basic-dom-node-properties/dom-class-hierarchy.png'>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 02: DOM types</strong>
+            <br>
+<textarea class='practice'>// JUST CLICK EXECUTE
+const h1 = document.querySelector('body');
+console.dir(h1);</textarea>
+            <p class='content'>
+              <em>Above</em>
+              we are outputting the
+              <em>h1</em>
+              tag we've selected from the DOM. If you click the icon beside the tag you will see a list of properties available to it. However, if you remember from last week, inheritance can be seen through the
+              <em>__proto__</em>
+              property on the object. Scroll to the __proto__ tag and open it. Follow through each __proto__ tag to see the inheritance chain for the body element.
+            </p>
+            <p class='content'>
+              <em>Sort the objects into the order body inherits from. The closest inheritance will be the first one.</em>
+            </p>
+            <div class='mt-3'>
+              <ul class='student-response' id='m6p2sr'>
+                <li class='list-drag'>HTMLBodyElement</li>
+                <li class='list-drag'>HTMLElement</li>
+                <li class='list-drag'>Element</li>
+                <li class='list-drag'>Node</li>
+                <li class='list-drag'>EventTarget</li>
+                <li class='list-drag'>Object</li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </section>
+        <hr>
+        <section>
+          <header>
+            <h2>DOM Selection Methods</h2>
+          </header>
+          <h3><content=>Using CSS Selectors</content=></h3>
+          <div>
+            <p class='content'>
+              <em>The DOM API</em>
+              provides several methods for selecting
+              <em>HTML elements</em>
+              on the page. HTML Elements are the tags that make up your HTML document. The DOM API creates HTMLElement objects to represent and interact with those tags. The selectors allow us to
+              <em>search for the HTMLElement that corresponds to a tag.</em>
+              The best part is we use
+              <em>CSS selectors</em>
+              as search parameters
+              to retrieve the HTMLElement objects.
+            </p>
+            <p class='content'>
+              The two standard methods for selecting HTMLElements are
+              <em>document.querySelector()</em>
+              and
+              <em>document.querySelectorAll().</em>
+              These methods, while similar, return different results.
+              <em>document.querySelector()</em>
+              will return
+              <em>a single HTMLElement object</em>
+              where as
+              <em>document.querySelectorAll()</em>
+              will return
+              <em>a NodeList containing one or more HTMLElement objects.</em>
+            </p>
+            <p class='content'>
+              Both DOM selector methods take a single argument:
+              <em>a CSS selector string.</em>
+              These are the same selectors your use to write
+              <em>CSS styles.</em>
+              These selector strings help the methods
+              <em>search and find</em>
+              what HTMLElement you're attempting to select.
+            </p>
+            <small class='note'>
+            The more precise your selector string the faster the element will be returned to query.
+            </small>
+            <p class='content'>
+              <em>Below</em>
+              is an example of selecting an element using various CSS selection methods:
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 03: Selecting Elements</strong>
+            <br>
+<textarea class='practice'>// Returns the first element the search encounters
+const p = document.querySelector('p'); // by tag
+const content = document.querySelector('.content'); // by class
+const link = document.querySelector('[href]'); // by attribute
+const m6p1 = document.querySelector('#m6p1'); // by id
+
+// Returns all elements that match the search
+const ps = document.querySelectorAll('p'); // by tag
+const contents = document.querySelectorAll('.content'); // by class
+const links = document.querySelectorAll('[href]'); // by attribute
+
+// Doesn't make sense to get all by ID as the ID should always be unique
+console.log(".querySelector()", p, content, link);
+console.log(".querySelectorAll()", m6p1, ps, contents, links);
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='note'>
+              As you can see
+              <em>above</em>
+              the
+              <em>.querySelector()</em>
+              returns
+              <em>SINGLE</em>
+              HTMLElement objects.
+              The
+              <em>.querySelectorAll()</em>
+              will return
+              <em>NodeList</em>
+              containing
+              <em>ONE OR MORE</em>
+              HTMLElement objects.
+            </p>
+          </div>
+          <h3><content=>Inspecting an Element</content=></h3>
+          <div>
+            <p class='content'>
+              All the major browsers provide a way to inspect an element. You simply
+              <em>right click on the element</em>
+              you want to inspect and
+              <em>choose inspect.</em>
+              The browser
+              <em>(in the developer tools window)</em>
+              will show you the element HTML allowing you to quickly see what tag it is, what attributes it contains, and any children that may be nested within the element.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 04: Using Inspect</strong>
+            <br>
+            <div class='m-3'>
+              <input class='btn btn-primary' name='thisIsButton' onclick='(e) =&gt; e.preventDefault();' value='Howdy'>
+            </div>
+<textarea class='practice'>// Answer the questions below</textarea>
+            <div class='row mt-3'>
+              <div class='col-sm-6'>
+                <lable>
+                  <em>What HTML tag is the 'Howdy' button?</em>
+                </lable>
+                <input class='student-response' name='m6p4i1'>
+              </div>
+              <div class='col-sm-6'>
+                <lable>
+                  <em>What is the value of the name attribute?</em>
+                </lable>
+                <input class='student-response' name='m6p4i2'>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <h3><content=>DOM Walking With Selectors</content=></h3>
+          <div>
+            <p class='content'>
+              Because our query is merely a
+              <em>CSS selector</em>
+              we can
+              <em>walk the DOM</em>
+              just like we would when we're
+              <em>targeting a nested item. In fact, we can utilize the entire possible power of CSS selectors including pseudo selectors in order to select HTMLElements in our DOM:</em>
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 05: CSS DOM Walking</strong>
+            <br>
+            <hr>
+            <div class='m-3'>
+              <ul id='m6p5sr'>
+                <li>Odd</li>
+                <li>Even</li>
+                <li>Odd</li>
+                <li>Even</li>
+                <li>Odd</li>
+                <li>Even</li>
+              </ul>
+            </div>
+            <hr>
+<textarea class='practice'>// Step 1: Write the CSS selection string that will select only the even elements (HINT: You will likely need to inspect to see what you're workign with first)
+let selector; // Store the selector as a string
+
+// Below will work if the selector is correct
+const items = document.querySelectorAll(selector);
+for (let item of items) {
+  item.style.color = '#3498db';
+  item.style.fontWeight = 'bold';
+}</textarea>
+          </div>
+          <hr>
+          <div>
+            <p class='content'>
+              <em>CSS DOM walking</em>
+              is a simple way for us to select elements nested deep within our DOM structure. It is also a way for us to use our CSS Ninja skills to access that hard to reach element.
+              <em>However,</em>
+              CSS DOM walking isn't the only way for us to reach nested items. We can also use the
+              <em>DOM Scope</em>
+              which is defined for us by a selected element.
+            </p>
+          </div>
+          <h3><content=>DOM Walking With Scope</content=></h3>
+          <div>
+            <p class='content'>
+              The
+              <em>document</em>
+              object translates our entire HTML page into a collection of HTMLElements. The document object itself
+              <em>inherits from the Node object</em>
+              which provides us the methods
+              <em>.querySelector()</em>
+              and
+              <em>.querySelectorAll().</em>
+              All
+              <em>HTMLElements</em>
+              also inherit from the Node object. Which your Sherlock deducing skills should tell you
+              <em>ALL HTMLElements have the methods .querySelector() and .querySelectorAll()!</em>
+              So what exactly does this mean? .querySelector() and .querySelectorAll() are methods wrapping search algorithms.
+              <em>The object their called on is their scope.</em>
+              That means if we select an HTMLElement then call
+              <em>.querySelector()</em>
+              or
+              <em>.querySelectorAll()</em>
+              it will look for HTMLElements, matching the passed CSS selector string, nested within that
+              <em>HTMLElement.</em>
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 06: DOM Scope Walking</strong>
+            <br>
+            <hr>
+            <div class='m-3'>
+              <ul id='m6p6sr'>
+                <li>
+                  <span class='link'>
+                  <a href='#1'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='first'>Every First</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#2'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='second'>Every Second</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#3'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='third'>Every Third</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#4'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='second'>Every Second</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#5'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='first'>Every First</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#6'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='third'>Every Third</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#7'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='first'>Every First</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#8'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='second'>Every Second</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#9'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='third'>Every Third</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <hr>
+<textarea class='practice'>// Step 1: Select and store ONLY the ul HTMLElement
+const ul;
+
+// Step 2: Using scope, select and store ONLY the .labels
+const labels;
+
+// Step 3: Using scope, select and store ONLY the spans with the .first class
+const firstClasses;
+
+// Below will execute if above is correct...
+if (firstClasses && firstClasses instanceof NodeList) {
+  for (let _class of firstClasses) {
+    _class.style.color = '#e67e22';
+  }
+}
+&nbsp;
+&nbsp;</textarea>
+          </div>
+        </section>
+        <hr>
+        <section>
+          <header>
+            <h2>Working With an HTMLElement</h2>
+          </header>
+          <h3><content=>Accessing/Changing Content</content=></h3>
+          <div>
+            <p class='content'>
+              All
+              <em>HTMLElements</em>
+              have a property called
+              <em>.textContent.</em>
+              In addition, all HTMLElements that are
+              <em>form</em>
+              elements have a a property called
+              <em>.value.</em>
+              These properties are responsible for holding the very
+              <em>text</em>
+              we see on our page. If we want to change that text we merely access the appropriate property and modify its current content.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 07: Accessing & Changing Content</strong>
+            <br>
+            <hr>
+            <div class='m-3'>
+              <div id='falcon'>The falcon flies south in the winter.</div>
+              <input id='falconInput' value='Falcons suck'>
+            </div>
+            <hr>
+<textarea class='practice'>// Getting our text and input elements above
+const falconP = document.querySelector('#falcon');
+const falconInput = document.querySelector('#falconInput');
+
+// Accessing their text
+console.log(falconP.textContent);
+console.log(falconInput.value);
+
+// Step 1: Using a simple assigment operator, modify the falconP text
+
+// Step 2: Using a simple assignment operator, modify the falconInput value
+
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <h3><content=>Changing Styles</content=></h3>
+          <div>
+            <p class='content'>
+              <em>HTMLElements</em>
+              have several properties. For example, you can change any of their attributes by simply accessing the attribute as a property. These include
+              <em>name, id, title, href, src, alt, etc...</em>
+              The best part is we're not limited there. We can also access the
+              <em>style</em>
+              property. The style property, however, has some bonus capabilities. It itself is an object containing properties for every
+              <em>style attribute</em>
+              available to the HTMLElement. By accessing these attributes we can dynamically modify them!
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 08: Changing Styles</strong>
+            <br>
+            <hr>
+            <div class='m-3'>
+              <div id='styling'>Style Me!</div>
+            </div>
+            <hr>
+<textarea class='practice'>// Step 1: Access the above element, 'Style Me!'
+const styleMe;
+
+// This is an example of how to change a style
+styleMe.style.border = '1px solid #ccc';
+
+// Step 2: Change the background colour 
+
+
+// Step 3: Change the font colour
+
+
+// Step 4: Change border radius
+
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <h3><content=>Appending/Prepending HTMLElements</content=></h3>
+          <div>
+            <p class='content'>
+              Moving elements can be achieved by using
+              <em>append (or appendChild)</em>
+              or
+              <em>prepend.</em>
+              You're going to need to select an element you want to move and an element you want to move it to.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 09: Moving HTMLElements</strong>
+            <br>
+            <hr>
+            <div style='display: flex;'>
+              <div class='m3' id='start' style='height: 150px; width: 150px; display: flex; justify-content: center; align-items: center; border: 1px solid red'>
+                <div class='m-1' id='_1' style='border: 1px solid pink; padding: 0.25em;'>Move me over there</div>
+                <div class='m-1' id='_2' style='border: 1px solid pink; padding: 0.25em;'>Move me tooooooo</div>
+              </div>
+              <div class='m3' id='end' style='height: 150px; width: 150px; display: flex; justify-content: center; align-items: center; border: 1px solid green'></div>
+            </div>
+            <hr>
+<textarea class='practice'>const start = document.querySelector('#start');
+const end = document.querySelector('#end');
+
+const first = document.querySelector('#_1');
+const second = document.querySelector('#_2');
+
+// Moving them from start to end
+end.append(first);
+end.prepend(second);
+
+// Step 1: Move them back to the start but put second above first
+
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+        </section>
+        <hr>
+        <section>
+          <header>
+            <h2>Working With NodeLists</h2>
+          </header>
+          <h3><content=>Nodelists</content=></h3>
+          <div>
+            <p class='content'>
+              <em>NodeList</em>
+              objects are collections of Node instances. An HTMLElement is a node instance. When we want to select all items matching a CSS selector we use
+              <em>.querySelectorAll().</em>
+              This will return a NodeList containing all the nodes that match the passed CSS selector. Using standard iterative structures like for loops or the .forEach method we can iterate through our list and perform operations on the returned node.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 10: NodeList(s)</strong>
+            <br>
+            <hr>
+<textarea class='practice'>// Step 1: Select all paragraph tags on the page
+const ps;
+
+// Step 2: Iterate and change the colour of the text in each paragraph to a different colour from black
+ 
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+          <h3><content=>NodeList as Array Caveats</content=></h3>
+          <div>
+            <p class='content'>
+              <em>NodeLists are similar to Arrays,</em>
+              however, there are some caveats to treating them that way. For example, not all Array methods are available on NodeLists.
+              <em>.filter(), .map(), and .reduce(),</em>
+              for example,
+              will cause an error if you attempt to use the as they are not methods of the NodeList object.
+            </p>
+          </div>
+          <hr>
+          <div>
+            <i class='fas fa-code practice'></i>
+            <strong class='practice'>Practice 11: NodeList(s) Caveats</strong>
+            <br>
+            <hr>
+            <div class='m-3'>
+              <ul id='m6p7sr'>
+                <li>
+                  <span class='link'>
+                  <a href='#1'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='first'>Every First</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#2'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='second'>Every Second</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#3'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='third'>Every Third</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#4'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='second'>Every Second</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#5'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='first'>Every First</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#6'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='third'>Every Third</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#7'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='first'>Every First</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#8'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='second'>Every Second</span>
+                  </span>
+                </li>
+                <li>
+                  <span class='link'>
+                  <a href='#9'></a>
+                  </span>
+                  <span class='label'>
+                  <span class='third'>Every Third</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <hr>
+<textarea class='practice'>const lis = document.querySelectorAll('ul#m6p7sr > li');
+console.log(lis.constructor.name); // NodeList
+
+// .filter()
+lis.filter(function (ele) {
+  console.log("Filtered: ", ele);
+});
+
+// Step 1: Make the .filter() function work with Array.from
+// NOTE: You will need to comment out the above lis.filter... code to prevent it from executing
+
+
+// Step 2: Create a .filter() method polyfill on the NodeList object
+// a) Add a new method to the NodeList prototype called 'filter' and give it one parameter called 'callback'
+{
+  // b) This code will create a new document fragment. You can think of this as an HTMLElement floating in existence but not yet apart of the page DOM
+
+  
+  // c) create a for loop that iterates over 'this'. 'this' will contain our nodelist that we're attempting to filter (remember 'this' is a reference to the owner object)
+  {
+    // d) Check if the callback is returning false. .filter will not return any values that are false, hence...filtering!
+
+      // e) call continue; to perform the next iteration
+
+
+      // f) otherwise append the node to the document fragment
+  
+  }
+  
+  // g) return the .childnodes of the document fragment. We're doing this because we shouldn't change what object went in. We called .filter on a NodeList, we need to ensure we're returning a NodeList
+
+}
+
+ 
+// Step 3: Uncomment the lis.filter... code and press execute
+&nbsp;
+&nbsp;</textarea>
+          </div>
+          <hr>
+        </section>
+        <!-- Below is the lab submission section -->
+        <hr>
+        <hr>
+        <section class='mt-5'>
+          <h2>Your Lab Code</h2>
+          <p>Please submit the following code as your lab.</p>
+          <div>
+            <button class='btn btn-large btn-success' id='printCode'>Get Code!</button>
+          </div>
+          <div>
+            <pre class='line-numbers'><code class='language-javascript' id='codeoutput'></code></pre>
+          </div>
+        </section>
+      </article>
+    </div>
+    <!-- THIRD PARTY JAVASCRIPT -->
+    <!-- Bootstrap JS -->
+    <script crossorigin='anonymous' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script crossorigin='anonymous' integrity='sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP' src='https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js'></script>
+    <!-- Prism -->
+    <script src='./assets/js/prism.js' type='text/javascript'></script>
+    <!-- END OF THIRD PARTY JAVASCRIPT -->
+    <!-- Evaluation Code -->
+    <!-- This code is for evaluating your scripts -->
+    <script src='./assets/js/evaluate.js' type='text/javascript'></script>
+    <script src='./assets/js/scmLibrary.js'></script>
+    <!-- End of Evaluation Code -->
+  </body>
+</html>
