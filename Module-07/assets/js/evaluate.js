@@ -319,3 +319,105 @@ function m7p8 () {
 
   scm.setPass(m7p8.cmObj);
 }
+
+
+window.addEventListener('load', () => {
+  if (!(CODEMIRRORS.m7p9.getValue().match(/let x/))) {
+    let w = randomInt(1, 10000);
+    let x = w * w;
+    let str = `// Step 1: Using built-in library functions, square root the following number\n`
+    str += `let x = ${x};\n\n`;
+
+    str += `// Step 2: Using built-in library functions, cast the following string into a number\n`
+    str += `let w = '${w}';\n\n`;
+
+    str += `// BONUS: Using the built-in array method, .reduce(), sum the following values (MDN: Array.prototype.reduce())\n`;
+    str += `let y = ${randomNumberArray(25, [10, 100]).to_s()};\n`;
+    str += `let sum;`;
+
+    myStorage.m7p9vals = String([x,w]);
+
+    CODEMIRRORS.m7p9.setValue(`${str}\n\n${CODEMIRRORS.m7p9.getValue()}`);
+  }
+});
+
+function m7p9 () {
+  let vals = myStorage.m7p9vals.split(',');
+
+  scm.isNumber('x', m7p9.env.x, `x is no longer a number.`);
+  scm.isValue(m7p9.env.x, (Math.sqrt(vals[0])), `x should equal ${Math.sqrt(vals[0])}, not ${m7p9.env.x}. Check you're using the correct library function.`);
+  let pat = scm.parsePattern(`let{rs}x{eq}Math\\.sqrt\\({os}${vals[0]}{os}\\)`);
+  scm.checkPattern(pat, m7p9.cmObj, `You must use the appropriate library function to square root ${vals[0]}`);
+
+  scm.isNumber('w', m7p9.env.w, `w is a ${typeof m7p9.env.w}. It should be a number.`);
+  pat = scm.parsePattern(`let{rs}w{eq}Number\\({os}{qc}${vals[1]}{qc}{os}\\)`);
+  scm.checkPattern(pat, m7p9.cmObj, `You must use the appropriate library method to cast ${vals[1]}`);
+
+  if (m7p9.env.sum) {
+    scm.isArray('y', m7p9.env.y, `y is a ${typeof m7p9.env.y}. It should be an array!`);
+    scm.isNumber('sum', m7p9.env.sum, `sum is a ${typeof m7p9.env.sum}. It should be a number.`);
+
+    let val = m7p9.env.y.reduce((a, b) => a + b);
+    scm.isValue(m7p9.env.sum, val, `sum is equal to ${m7p9.env.sum}. It should be equal to ${val}. Check your syntax against the MDN example of Array.prototype.reduce()`);
+  }
+
+  scm.setPass(m7p9.cmObj);
+}
+
+
+window.addEventListener('load', () => {
+  if (!(CODEMIRRORS.m7p10.getValue().match(/let resp1/))) {
+    let functions = ['greeting', 'notify', 'message', 'acknowlege', 'sayBoo', 'wazzup', 'howdy'];
+    let params = ['name', 'superhero', 'villain', 'employee'];
+    let fun = randomArraySetDestructive(functions)[0];
+    let msg = randomArraySetDestructive(params)[0];
+
+    let str = ``;
+
+    str += `// Step 1: Create a standard named function called '${fun}'. It should take one parameter called ${msg}, and should return a message incorporating the parameter, ie: "Hello, \${${msg}}."\n`;
+    myStorage.m7p10step1 = [fun, msg];
+    str += `{\n\n`;
+    str += `}\n\n`;
+
+    let fun2 = randomArraySetDestructive(functions)[0];
+    let msg2 = randomArraySetDestructive(params)[0];
+    str += `// Step 2: Create an anonymous function called ${fun2}. It should take one parameter called ${msg2}, and should return a message incorporating the parameter, ie: "Hey there, \${${msg2}}!"\n`;
+    myStorage.m7p10step2 = [fun2, msg2];
+    str += `{\n\n`;
+    str += `}\n\n`;
+
+    str += `// Step 3: Call your '${fun}' named function and store the result in the following variable\n`;
+    str += `let resp1;\n\n`
+
+    str += `// Step 4: Call your '${fun2}' anonymous function and store the result in the following variable\n`;
+    str += `let resp2;\n\n`
+
+    CODEMIRRORS.m7p10.setValue(`${str}\n\n${CODEMIRRORS.m7p10.getValue()}`);
+  }
+});
+
+function m7p10 () {
+  let [fun, msg] = myStorage.m7p10step1.split(',');
+  let [fun2, msg2] = myStorage.m7p10step2.split(',');
+
+  scm.isFunction(fun, m7p10.env[fun]);
+  let pat = scm.parsePattern(`function{rs}${fun}{os}\\({os}${msg}{os}\\)`);
+  scm.checkPattern(pat, m7p10.cmObj, `Your standard named function, ${fun}, is either syntactically incorrect. Make sure you included the required parameter.`);
+  pat = scm.parsePattern(`return{rs}.*((\\+{os}${msg})|(${msg}{os}\\+)|(\\\`.*${msg}.*\\\`))`);
+  scm.checkPattern(pat, m7p10.cmObj, `You are missing your return statement in your ${fun} function, or you're not returning the parameter (${msg}) as part of the value.`);
+
+  scm.isFunction(fun2, m7p10.env[fun2]);
+  pat = scm.parsePattern(`(let|const){rs}${fun2}{eq}function{os}\\({os}${msg2}{os}\\)`);
+  scm.checkPattern(pat, m7p10.cmObj, `Your anonymous function, ${fun2}, is either syntactically incorrect. Make sure you included the required parameter.`);
+  pat = scm.parsePattern(`return{rs}.*((\\+{os}${msg2})|(${msg2}{os}\\+)|(\\\`.*${msg2}.*\\\`))`);
+  scm.checkPattern(pat, m7p10.cmObj, `You are missing your return statement in your ${fun2} function, or you're not returning the parameter (${msg2}) as part of the value.`);
+
+  pat = scm.parsePattern(`resp1{eq}${fun}\\(.+\\)`);
+  scm.checkPattern(pat, m7p10.cmObj, `You haven't called your ${fun}() function. Make sure you're calling it while assigning it to the resp1 variable.`);
+  
+
+  pat = scm.parsePattern(`resp2{eq}${fun2}\\(.+\\)`);
+  scm.checkPattern(pat, m7p10.cmObj, `You haven't called your ${fun2}() function. Make sure you're calling it while assigning it to the resp2 variable.`);
+
+  scm.setPass(m7p10.cmObj);
+}

@@ -145,6 +145,20 @@ const randomArrEle = function (arr) {
   return arr[Math.floor(Math.random()*arr.length)];
 }
 
+const randomNumberArray = function (amt = 10, range = [1, 10]) {
+  let randArr = [];
+
+  for (let i = 0; i < amt; i++) {
+    randArr.push(randomInt(range[0], range[1]));
+  }
+
+  return randArr;
+}
+
+Array.prototype.to_s = function () {
+  return JSON.stringify(this).replace(/\,/g, ', ');
+}
+
 const randomArrSet = function (arr, amt) {
   let tmp = arr.slice(0);
   let popped = [];
@@ -156,7 +170,7 @@ const randomArrSet = function (arr, amt) {
   return popped.flat();
 }
 
-const randomArraySetDestructive = function (arr, amt) {
+const randomArraySetDestructive = function (arr, amt = 1) {
   let popped = [];
 
   while (arr.length > 0 && popped.length < amt) {

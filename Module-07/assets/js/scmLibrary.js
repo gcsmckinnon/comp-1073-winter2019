@@ -354,4 +354,14 @@ document.addEventListener("DOMContentLoaded", function () {
       codeoutput.append(myStorage[ele.id]);
     });
   });
+
+  const clearTest = document.querySelector('#clearTest');
+  if (clearTest) {
+    clearTest.onclick = () => {
+      if (confirm('This will clear the WHOLE test! Are you sure???')) {
+        myStorage.clear();
+        location.reload();
+      }
+    }
+  }
 });
